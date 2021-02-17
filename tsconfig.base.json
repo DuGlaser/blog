@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "sourceMap": true,
+    "module": "esnext",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "lib": ["dom", "es6", "ES2015", "ES2016", "ES2017"],
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
