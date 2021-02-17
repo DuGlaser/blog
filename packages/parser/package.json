@@ -3,14 +3,40 @@
   "version": "1.0.0",
   "author": "DuGlaser <duglaser0618@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
+    "react": "^17.0.1",
+    "rehype-react": "^6.2.0",
     "remark-parse": "^9.0.0",
     "remark-react": "^8.0.0",
+    "remark-rehype": "^8.0.0",
     "unified": "^9.2.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
+    "@types/react": "^17.0.2",
+    "@types/react-test-renderer": "^17.0.1",
     "jest": "^26.6.3",
+    "react-test-renderer": "^17.0.1",
     "ts-jest": "^26.5.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/*.test.ts"
+    ]
   }
 }
