@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": "./components",
+    "outDir": "dist",
+    "strictNullChecks": true
+  },
+  "include": ["**/*.tsx", "**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
