@@ -4,7 +4,10 @@
   "author": "DuGlaser <duglaser0618@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -rf ./dist",
+    "build": "tsc",
+    "lint": "eslint --ext .ts"
   },
   "dependencies": {
     "react": "^17.0.1",
