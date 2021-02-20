@@ -1,5 +1,10 @@
 import React from 'react';
-import { H1 } from 'heading';
+import { Meta } from '@storybook/react/types-6-0';
+import { H1 } from './index';
+
+export default {
+  title: 'markdown-component/Heading',
+} as Meta;
 
 export const Heading = () => {
   return (
