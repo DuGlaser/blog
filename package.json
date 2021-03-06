@@ -1,11 +1,9 @@
 {
   "name": "blog",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "lint": "eslint 'packages/**/*.tsx' 'packages/**/*.ts'"
+    "lint": "eslint 'packages/**/*.tsx' 'packages/**/*.ts'",
+    "install:all": "yarn install && yarn bootstrap",
+    "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.15.0",
