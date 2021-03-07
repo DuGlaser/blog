@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser # test 1`] = `
+<div>
+  <h1>
+    test
+  </h1>
+</div>
+`;
+
+exports[`parser ## test 1`] = `
+<div>
+  <h2>
+    test
+  </h2>
+</div>
+`;
+
+exports[`parser * test 1`] = `
+<div>
+  <ul>
+    
+
+    <li>
+      test
+    </li>
+    
+
+  </ul>
+</div>
+`;
+
+exports[`parser > test 1`] = `
+<div>
+  <blockquote>
+    
+
+    <p>
+      test
+    </p>
+    
+
+  </blockquote>
+</div>
+`;
+
+exports[`parser [example](http://example.com) 1`] = `
+<div>
+  <p>
+    <a
+      href="http://example.com"
+    >
+      example
+    </a>
+  </p>
+</div>
+`;
+
+exports[`parser - test 1`] = `
+<div>
+  <ul>
+    
+
+    <li>
+      test
+    </li>
+    
+
+  </ul>
+</div>
+`;
+
+exports[`parser code 1`] = `
+<div>
+  <pre>
+    <code>
+                            \`\`\`js
+                        console.log('test')
+                      \`\`\`
+                      
+
+    </code>
+  </pre>
+</div>
+`;
