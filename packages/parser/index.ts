@@ -1,8 +1,8 @@
 import React from 'react';
-import unified from 'unified';
+import rehypeToreact, { ComponentOptions } from 'rehype-react';
 import toremark from 'remark-parse';
 import remarkTorehype from 'remark-rehype';
-import rehypeToreact, { ComponentOptions } from 'rehype-react';
+import unified from 'unified';
 
 export const parser = (
   mdText: string,

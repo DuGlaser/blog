@@ -1,5 +1,5 @@
-import { parser } from './index';
 import renderer from 'react-test-renderer';
+import { parser } from './index';
 
 describe('parser', () => {
   test('# test', () => {
