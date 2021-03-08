@@ -1,8 +1,8 @@
-import { NextPage } from 'next';
 import firebase from 'firebase/app';
+import { NextPage } from 'next';
 import 'firebase/auth';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { withAuthUser, AuthAction } from 'next-firebase-auth';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 const uiConfig = {
   signInFlow: 'popup',
