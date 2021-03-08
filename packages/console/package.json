@@ -11,9 +11,11 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "firebase": "^8.2.10",
     "next": "latest",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-firebase-hooks": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
