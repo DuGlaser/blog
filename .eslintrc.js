@@ -19,17 +19,14 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint', 'import'],
+  plugins: ['@typescript-eslint', 'import', 'simple-import-sort'],
   rules: {
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
     'sort-imports': 0,
-    'import/order': [
-      2,
-      {
-        alphabetize: {
-          order: 'asc',
-        },
-      },
-    ],
     'prettier/prettier': [
       'error',
       {},
