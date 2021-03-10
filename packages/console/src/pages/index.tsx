@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { withAuthUser, AuthAction, useAuthUser } from 'next-firebase-auth';
+import { AuthAction, useAuthUser, withAuthUser } from 'next-firebase-auth';
 
 const IndexPage: NextPage = () => {
   const AuthUser = useAuthUser();

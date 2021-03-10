@@ -1,7 +1,8 @@
+import 'firebase/auth';
+
 import firebase from 'firebase/app';
 import { NextPage } from 'next';
-import 'firebase/auth';
-import { withAuthUser, AuthAction } from 'next-firebase-auth';
+import { AuthAction, withAuthUser } from 'next-firebase-auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 const uiConfig = {
