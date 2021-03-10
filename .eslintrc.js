@@ -26,7 +26,6 @@ module.exports = {
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
-    'sort-imports': 0,
     'prettier/prettier': [
       'error',
       {},
