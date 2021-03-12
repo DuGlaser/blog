@@ -1,9 +1,21 @@
 import 'firebase/auth';
 
+import styled from '@emotion/styled';
 import firebase from 'firebase/app';
 import { NextPage } from 'next';
 import { AuthAction, withAuthUser } from 'next-firebase-auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+const S = {
+  Wrapper: styled.div`
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+};
 
 const uiConfig = {
   signInFlow: 'popup',
@@ -22,9 +34,9 @@ const uiConfig = {
 
 const LoginPage: NextPage = () => {
   return (
-    <div>
+    <S.Wrapper>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-    </div>
+    </S.Wrapper>
   );
 };
 
