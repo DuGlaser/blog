@@ -1,4 +1,6 @@
-import initAuth from '@/utils/initAuth'; // the module you created above
+import 'modern-css-reset';
+
+import initAuth from '@/utils/initAuth';
 
 initAuth();
 
