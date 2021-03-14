@@ -1,8 +1,10 @@
-import { Avatar, FloatingWindow } from '@/components/atoms';
-import { RefObject, useEffect, useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as S from './style';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { RefObject, useEffect, useRef, useState } from 'react';
+
+import { Avatar, FloatingWindow } from '@/components/atoms';
+
+import * as S from './style';
 
 export type Props = {
   logout: () => void;
@@ -26,11 +28,26 @@ const usePosition = (posRef: RefObject<HTMLElement>) => {
   return { top, right };
 };
 
-// TODO: FloatingWindow以外をクリックしたときに閉じるようにしたい
 export const LoggedinUser: React.VFC<Props> = ({ logout, name, avatarSrc }) => {
   const [openWindow, setOpenWindow] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const windowRef = useRef<HTMLDivElement>(null);
   const { top, right } = usePosition(ref);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        [ref, windowRef].every(
+          (ref) => ref.current && !ref.current.contains(event.target as Node)
+        )
+      ) {
+        setOpenWindow(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <S.Wrapper>
@@ -46,7 +63,11 @@ export const LoggedinUser: React.VFC<Props> = ({ logout, name, avatarSrc }) => {
           <FontAwesomeIcon icon={faChevronDown} color={'gray'} />
         </S.OpenWindowIconWrapper>
       </S.RowWrapper>
-      <S.FloatingWindowWrapper top={`${top}px`} right={`${right}px`}>
+      <S.FloatingWindowWrapper
+        ref={windowRef}
+        top={`${top}px`}
+        right={`${right}px`}
+      >
         {openWindow && (
           <FloatingWindow>
             <S.List>
