@@ -1,5 +1,5 @@
 import * as S from './style';
-import { Drawer, LoggedinUser } from '@/components/molecules';
+import { LoggedinUser } from '@/components/molecules';
 
 export type Props = {
   logout: () => void;
@@ -13,10 +13,7 @@ export const Layout: React.FC<Props> = ({ children, ...props }) => {
       <S.Header>
         <LoggedinUser {...props} />
       </S.Header>
-      <S.Content>
-        <Drawer />
-        {children}
-      </S.Content>
+      <S.Content>{children}</S.Content>
     </S.Wrapper>
   );
 };
