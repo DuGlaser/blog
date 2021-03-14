@@ -1,17 +1,20 @@
 import * as S from './style';
 import { LoggedinUser } from '@/components/molecules';
+import { useAuthUser } from 'next-firebase-auth';
 
-export type Props = {
-  logout: () => void;
-  name: string;
-  avatarSrc: string;
-};
+export const Layout: React.FC = ({ children }) => {
+  const authUser = useAuthUser();
 
-export const Layout: React.FC<Props> = ({ children, ...props }) => {
   return (
     <S.Wrapper>
       <S.Header>
-        <LoggedinUser {...props} />
+        {authUser.firebaseUser && (
+          <LoggedinUser
+            name={authUser.firebaseUser.displayName || ''}
+            avatarSrc={authUser.firebaseUser.photoURL || ''}
+            logout={() => authUser.signOut()}
+          />
+        )}
       </S.Header>
       <S.Content>{children}</S.Content>
     </S.Wrapper>
