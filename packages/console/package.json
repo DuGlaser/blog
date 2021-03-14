@@ -20,6 +20,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "firebase": "^8.3.0",
     "firebase-admin": "^9.5.0",
     "modern-css-reset": "^1.4.0",
     "next": "latest",
