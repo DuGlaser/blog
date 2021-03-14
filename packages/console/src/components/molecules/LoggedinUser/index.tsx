@@ -5,6 +5,7 @@ import { RefObject, useEffect, useRef, useState } from 'react';
 import { Avatar, FloatingWindow } from '@/components/atoms';
 
 import * as S from './style';
+import { useTheme } from '@emotion/react';
 
 export type Props = {
   logout: () => void;
@@ -29,6 +30,7 @@ const usePosition = (posRef: RefObject<HTMLElement>) => {
 };
 
 export const LoggedinUser: React.VFC<Props> = ({ logout, name, avatarSrc }) => {
+  const theme = useTheme();
   const [openWindow, setOpenWindow] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
@@ -60,7 +62,7 @@ export const LoggedinUser: React.VFC<Props> = ({ logout, name, avatarSrc }) => {
             setOpenWindow((cur) => !cur);
           }}
         >
-          <FontAwesomeIcon icon={faChevronDown} color={'gray'} />
+          <FontAwesomeIcon icon={faChevronDown} color={theme.color.gray} />
         </S.OpenWindowIconWrapper>
       </S.RowWrapper>
       <S.FloatingWindowWrapper
@@ -69,7 +71,10 @@ export const LoggedinUser: React.VFC<Props> = ({ logout, name, avatarSrc }) => {
         right={`${right}px`}
       >
         {openWindow && (
-          <FloatingWindow>
+          <FloatingWindow
+            bgColor={theme.color.base}
+            textColor={theme.color.gray}
+          >
             <S.List>
               <S.Item onClick={logout}>ログアウト</S.Item>
             </S.List>

@@ -15,13 +15,11 @@ export const RowWrapper = styled.div`
   height: 100%;
 `;
 
-export const Username = styled.span`
-  // TODO: Use theme
-  color: gray;
-  font-size: 1.2rem;
-
-  margin-inline-start: 0.8rem;
-`;
+export const Username = styled.span(({ theme }) => ({
+  color: theme.color.gray,
+  fontSize: '1.2rem',
+  marginInlineStart: '0.8rem',
+}));
 
 export const OpenWindowIconWrapper = styled.div`
   display: flex;
@@ -62,9 +60,5 @@ export const List = styled.ul`
 export const Item = styled.li`
   padding: 0.8em 1.5em;
   font-size: 1rem;
-
-  :hover {
-    background-color: lightblue;
-    transition: background-color 0.3s;
-  }
+  cursor: pointer;
 `;

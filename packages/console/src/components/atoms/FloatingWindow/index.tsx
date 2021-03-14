@@ -3,6 +3,7 @@ import { Property } from 'csstype';
 
 export type Props = {
   bgColor?: Property.BackgroundColor;
+  textColor?: Property.Color;
   borderRadius?: Property.BorderRadius;
 };
 
@@ -19,8 +20,8 @@ const StyledDiv = styled.div<Props>(
     0 35px 51px rgba(0, 0, 0, 0.1)
     `,
   },
-  // TODO: white -> theme.base ...?
-  ({ bgColor = 'white', borderRadius = '0.5em' }) => ({
+  ({ bgColor = 'white', textColor = 'black', borderRadius = '0.5em' }) => ({
+    color: textColor,
     backgroundColor: bgColor,
     borderRadius,
   })
