@@ -14,10 +14,11 @@
     "strict": true,
     "target": "esnext",
     "baseUrl": "./",
+    "types": ["@emotion/react/types/css-prop"],
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "src/**/*.stories.tsx"],
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
