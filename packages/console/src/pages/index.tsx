@@ -1,14 +1,20 @@
+import { Layout } from '@/components/templates';
 import { NextPage } from 'next';
 import { AuthAction, useAuthUser, withAuthUser } from 'next-firebase-auth';
 
 const IndexPage: NextPage = () => {
   const AuthUser = useAuthUser();
 
+  if (!AuthUser.firebaseUser) {
+    return null;
+  }
+
   return (
-    <div>
-      <p>{AuthUser.id}</p>
-      <p>index page</p>
-    </div>
+    <Layout
+      name={AuthUser.firebaseUser.displayName || ''}
+      avatarSrc={AuthUser.firebaseUser.photoURL || ''}
+      logout={() => AuthUser.signOut()}
+    ></Layout>
   );
 };
 
