@@ -36,6 +36,7 @@ export const OpenWindowIconWrapper = styled.div`
 
   :hover {
     background-color: lightgrey;
+    opacity: 0.5;
     transition: background-color 0.3s;
   }
 `;
