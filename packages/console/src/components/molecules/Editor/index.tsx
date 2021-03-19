@@ -1,7 +1,3 @@
-import 'codemirror/keymap/vim';
-import 'codemirror/theme/monokai.css';
-
-import CodeMirror from '@uiw/react-codemirror';
 import React from 'react';
 
 import * as S from './style';
@@ -13,19 +9,11 @@ export type Props = {
 
 export const Editor: React.VFC<Props> = ({ value, onChange }) => {
   return (
-    <S.Wrapper>
-      <CodeMirror
-        value={value}
-        onChange={(instance) => {
-          onChange(instance.getValue());
-        }}
-        options={{
-          theme: 'monokai',
-          keyMap: 'vim',
-          mode: 'markdown',
-          lineNumbers: false,
-        }}
-      />
-    </S.Wrapper>
+    <S.Textarea
+      value={value}
+      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+        onChange(e.target.value)
+      }
+    />
   );
 };
