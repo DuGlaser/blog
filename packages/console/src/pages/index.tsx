@@ -1,20 +1,14 @@
-import { Layout } from '@/components/templates';
 import { NextPage } from 'next';
+import Link from 'next/link';
 import { AuthAction, useAuthUser, withAuthUser } from 'next-firebase-auth';
 
+import { Layout } from '@/components/templates';
+
 const IndexPage: NextPage = () => {
-  const AuthUser = useAuthUser();
-
-  if (!AuthUser.firebaseUser) {
-    return null;
-  }
-
   return (
-    <Layout
-      name={AuthUser.firebaseUser.displayName || ''}
-      avatarSrc={AuthUser.firebaseUser.photoURL || ''}
-      logout={() => AuthUser.signOut()}
-    ></Layout>
+    <Layout>
+      <Link href="/articles/new">hoge</Link>
+    </Layout>
   );
 };
 
