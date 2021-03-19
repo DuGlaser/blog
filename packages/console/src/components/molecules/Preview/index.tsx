@@ -1,6 +1,7 @@
 import { parser } from '@blog/parser';
-import * as S from './style';
 import { useMemo } from 'react';
+
+import * as S from './style';
 
 export type Props = {
   value: string;

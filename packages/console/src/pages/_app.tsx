@@ -1,7 +1,8 @@
 import 'modern-css-reset';
 
-import initAuth from '@/utils/initAuth';
 import { ThemeProvider } from '@emotion/react';
+
+import initAuth from '@/utils/initAuth';
 import { theme } from '@/utils/theme';
 
 initAuth();

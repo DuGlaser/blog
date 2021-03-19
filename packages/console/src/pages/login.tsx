@@ -1,10 +1,11 @@
 import 'firebase/auth';
 
 import styled from '@emotion/styled';
-import firebase from '@/utils/firebase';
 import { NextPage } from 'next';
 import { AuthAction, withAuthUser } from 'next-firebase-auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+import firebase from '@/utils/firebase';
 
 const S = {
   Wrapper: styled.div`

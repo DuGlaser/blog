@@ -1,6 +1,8 @@
-import * as S from './style';
-import { LoggedinUser } from '@/components/molecules';
 import { useAuthUser } from 'next-firebase-auth';
+
+import { LoggedinUser } from '@/components/molecules';
+
+import * as S from './style';
 
 export const Layout: React.FC = ({ children }) => {
   const authUser = useAuthUser();

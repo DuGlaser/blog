@@ -1,3 +1,4 @@
+import { useTheme } from '@emotion/react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RefObject, useEffect, useRef, useState } from 'react';
@@ -5,7 +6,6 @@ import { RefObject, useEffect, useRef, useState } from 'react';
 import { Avatar, FloatingWindow } from '@/components/atoms';
 
 import * as S from './style';
-import { useTheme } from '@emotion/react';
 
 export type Props = {
   logout: () => void;

@@ -16,7 +16,7 @@ export default {
   component: Editor,
 } as Meta;
 
-const Template: Story<Props> = ({}) => {
+const Template: Story<Props> = () => {
   const [value, setValue] = useState('');
 
   const handleOnchange = useCallback((v) => {

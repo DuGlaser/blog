@@ -1,7 +1,9 @@
-import CodeMirror from '@uiw/react-codemirror';
 import 'codemirror/keymap/vim';
 import 'codemirror/theme/monokai.css';
+
+import CodeMirror from '@uiw/react-codemirror';
 import React from 'react';
+
 import * as S from './style';
 
 export type Props = {

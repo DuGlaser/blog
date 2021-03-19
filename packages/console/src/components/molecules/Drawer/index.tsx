@@ -1,11 +1,12 @@
-import * as S from './style';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
 import {
   faBars,
   faPlus,
   faStickyNote,
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
+
+import * as S from './style';
 
 export const Drawer = () => {
   const [isOpen, setIsOpen] = useState(false);
