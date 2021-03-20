@@ -4,8 +4,8 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.theme.color.base};
-  border-radius: 0.5rem;
-
   color: ${(props) => props.theme.color.gray};
   padding: 2rem;
+
+  overflow: hidden;
 `;
