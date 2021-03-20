@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { Editor, Preview } from '@/components/molecules';
 
 const S = {
-  Wrapper: styled.div`
+  Flex: styled.div`
     height: 100%;
     width: 100%;
 
@@ -16,10 +16,30 @@ const S = {
     align-items: center;
   `,
 
-  FlexItem: styled.div`
+  Wrapper: styled.div`
+    height: 95%;
+    width: 95%;
+    max-width: 1440px;
+
+    display: flex;
+    flex-direction: column;
+  `,
+
+  Header: styled.div`
+    margin-bottom: 2rem;
+  `,
+
+  Content: styled.div`
     flex: 1;
+    width: 100%;
+    display: flex;
+  `,
+
+  Border: styled.div`
     height: 100%;
-    padding: 5rem;
+    width: 3px;
+    background-color: ${(props) => props.theme.color.gray};
+    opacity: 0.3;
   `,
 };
 
@@ -32,14 +52,16 @@ const NewPage: NextPage = () => {
 
   return (
     <Layout>
-      <S.Wrapper>
-        <S.FlexItem>
-          <Editor value={editor} onChange={handleOnChange} />
-        </S.FlexItem>
-        <S.FlexItem>
-          <Preview value={editor} />
-        </S.FlexItem>
-      </S.Wrapper>
+      <S.Flex>
+        <S.Wrapper>
+          <S.Header></S.Header>
+          <S.Content>
+            <Editor value={editor} onChange={handleOnChange} />
+            <S.Border />
+            <Preview value={editor} />
+          </S.Content>
+        </S.Wrapper>
+      </S.Flex>
     </Layout>
   );
 };
