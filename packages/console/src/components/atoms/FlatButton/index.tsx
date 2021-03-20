@@ -10,18 +10,18 @@ type ButtonProps = React.DetailedHTMLProps<
 type StyledProps = {
   textColor?: Property.Color;
   bgColor?: Property.BackgroundColor;
+  padding?: Property.Padding;
 };
 
 export type Props = ButtonProps & StyledProps;
 
 const StyledButton = styled.button<StyledProps>(
   {
-    padding: '.5em 1em',
-
     border: 'none',
     borderRadius: '.25em',
   },
-  ({ textColor, bgColor }) => ({
+  ({ textColor, bgColor, padding = '0.5em 2em' }) => ({
+    padding,
     color: textColor,
     backgroundColor: bgColor,
   })
