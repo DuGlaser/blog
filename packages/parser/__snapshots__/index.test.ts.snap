@@ -70,6 +70,18 @@ exports[`parser - test 1`] = `
 </div>
 `;
 
+exports[`parser break line 1`] = `
+<div>
+  <p>
+    hoge
+    <br />
+    
+
+    hoge
+  </p>
+</div>
+`;
+
 exports[`parser code 1`] = `
 <div>
   <pre>
