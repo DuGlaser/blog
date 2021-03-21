@@ -1,7 +1,9 @@
 export const theme = {
   color: {
-    bgColor: '#1B2026',
-    base: '#272C34',
-    gray: '#686C74',
+    bgColor: '#16161a',
+    base: '#242629',
+    gray: '#94a1b2',
+    primary: '#7f5af0',
+    white: '#fffffe',
   },
 };
