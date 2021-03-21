@@ -1,9 +1,9 @@
 import React from 'react';
 import rehypeToreact, { ComponentOptions } from 'rehype-react';
+import breaks from 'remark-breaks';
+import gfm from 'remark-gfm';
 import toremark from 'remark-parse';
 import remarkTorehype from 'remark-rehype';
-import gfm from 'remark-gfm';
-import breaks from 'remark-breaks';
 import unified from 'unified';
 
 export const parser = (
