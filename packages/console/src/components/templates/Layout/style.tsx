@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+const HEADER_HEIGHT = '64px';
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,14 +16,12 @@ export const Header = styled.header`
   display: flex;
   justify-content: flex-end;
 
-  height: 64px;
+  height: ${HEADER_HEIGHT};
   padding: 16px;
 
   background-color: ${(props) => props.theme.color.base};
 `;
 
 export const Content = styled.div`
-  display: flex;
-
-  flex: 1;
+  height: calc(100vh - ${HEADER_HEIGHT});
 `;

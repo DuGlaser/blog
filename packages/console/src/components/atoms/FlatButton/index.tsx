@@ -17,13 +17,13 @@ export type Props = ButtonProps & StyledProps;
 
 const StyledButton = styled.button<StyledProps>(
   {
-    border: 'none',
     borderRadius: '.25em',
   },
   ({ textColor, bgColor, padding = '0.5em 2em' }) => ({
     padding,
     color: textColor,
     backgroundColor: bgColor,
+    border: `2px solid ${bgColor}`,
   })
 );
 
