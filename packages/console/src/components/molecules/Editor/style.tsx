@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { customScrollBar } from '@/utils/customScrollBar';
+
 export const Textarea = styled.textarea`
   height: 100%;
   width: 100%;
@@ -9,4 +11,6 @@ export const Textarea = styled.textarea`
   color: ${(props) => props.theme.color.gray};
   resize: none;
   outline: none;
+
+  ${customScrollBar}
 `;

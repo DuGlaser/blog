@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { customScrollBar } from '@/utils/customScrollBar';
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -7,5 +9,8 @@ export const Wrapper = styled.div`
   color: ${(props) => props.theme.color.gray};
   padding: 2rem;
 
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+
+  ${customScrollBar}
 `;
