@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { Editor, Props } from './index';
 
