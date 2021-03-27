@@ -2,18 +2,28 @@ import React from 'react';
 
 import * as S from './style';
 
-export type Props = {
+type TextareaProps = React.DetailedHTMLProps<
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  HTMLTextAreaElement
+>;
+
+type StyleProps = {
   value: string;
   onChange: (v: string) => void;
 };
 
-export const Editor: React.VFC<Props> = ({ value, onChange }) => {
-  return (
-    <S.Textarea
-      value={value}
-      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-        onChange(e.target.value)
-      }
-    />
-  );
-};
+export type Props = TextareaProps & StyleProps;
+
+export const Editor = React.forwardRef<HTMLTextAreaElement, Props>(
+  function _Editor({ children, onChange, ...props }, ref) {
+    return (
+      <S.Textarea
+        ref={ref}
+        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+          onChange(e.target.value)
+        }
+        {...props}
+      />
+    );
+  }
+);
