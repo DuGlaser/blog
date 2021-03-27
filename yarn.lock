@@ -15848,6 +15848,13 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
+use-stop-typing@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/use-stop-typing/-/use-stop-typing-1.0.9.tgz#6c03642fb0a10d5d25f20d813b1ff8ceb18b3d66"
+  integrity sha512-40oz8SzxUbUeIRNfnVWAbuw1aaAHvH2A/v3lvlz12thpGKvG3CBtwdn877EPmWiFwfPrSqYxzumDzAKnHw7zXg==
+  dependencies:
+    react "^17.0.1"
+
 use-subscription@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.5.1.tgz#73501107f02fad84c6dd57965beb0b75c68c42d1"
