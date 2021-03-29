@@ -18,7 +18,7 @@ export const Header = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  & :first-child {
+  & :first-of-type {
     margin-right: 1rem;
   }
 `;
@@ -41,4 +41,14 @@ export const Border = styled.div`
   width: 3px;
   background-color: ${(props) => props.theme.color.base};
   opacity: 0.3;
+`;
+
+export const FloatingWindowWrapper = styled.div`
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+`;
+
+export const FloatingWindowText = styled.div`
+  padding: 0.5rem 2rem;
 `;

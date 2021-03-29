@@ -2,19 +2,25 @@ import { useTheme } from '@emotion/react';
 import React, { useCallback, useRef, useState } from 'react';
 import { useStopTyping } from 'use-stop-typing';
 
-import { FlatButton, OutlineButton, TextFilled } from '@/components/atoms';
+import {
+  FlatButton,
+  FloatingWindow,
+  OutlineButton,
+  TextFilled,
+} from '@/components/atoms';
 import { Editor, Preview } from '@/components/molecules';
 import { useSaveArticle } from '@/hooks';
-import { FirestoreArticle } from '@/types/article';
+import { Article } from '@/types/article';
 
 import * as S from './style';
 
 export type Props = {
-  article?: FirestoreArticle;
+  article?: Article;
 };
 
 export const ArticleEditor: React.VFC<Props> = ({
   article = {
+    id: '',
     public: false,
     title: '',
     body: '',
@@ -26,19 +32,27 @@ export const ArticleEditor: React.VFC<Props> = ({
   const [editor, setEditor] = useState(article.body);
   const [title, setTitle] = useState(article.title);
   const [isPublic, setIsPublic] = useState(article.public);
+  const [isUpdate, setIsUpdate] = useState(false);
 
-  const handleSave = useSaveArticle();
-  const ref = useRef<HTMLTextAreaElement>(null);
-  useStopTyping(
-    ref,
-    () =>
-      handleSave({
-        public: isPublic,
-        title: title,
-        body: editor,
-      }),
-    2000
-  );
+  const handleSave = useSaveArticle(article.id);
+  const editorRef = useRef<HTMLTextAreaElement>(null);
+  const titleRef = useRef<HTMLInputElement>(null);
+
+  [editorRef, titleRef].map((ref) => {
+    useStopTyping(
+      ref,
+      () => {
+        handleSave({
+          public: isPublic,
+          title: title,
+          body: editor,
+        });
+        setIsUpdate(true);
+        setTimeout(() => setIsUpdate(false), 2500);
+      },
+      2000
+    );
+  });
 
   const handleOnChange = useCallback((value) => {
     setEditor(value);
@@ -54,6 +68,7 @@ export const ArticleEditor: React.VFC<Props> = ({
             fontSize={'32px'}
             value={title}
             onChange={(e) => setTitle(e.currentTarget.value)}
+            ref={titleRef}
           />
         </S.TitleWrapper>
         <S.ButtonWrapper>
@@ -87,10 +102,17 @@ export const ArticleEditor: React.VFC<Props> = ({
         </S.ButtonWrapper>
       </S.Header>
       <S.Content>
-        <Editor ref={ref} value={editor} onChange={handleOnChange} />
+        <Editor ref={editorRef} value={editor} onChange={handleOnChange} />
         <S.Border />
         <Preview value={editor} />
       </S.Content>
+      {isUpdate && (
+        <S.FloatingWindowWrapper>
+          <FloatingWindow>
+            <S.FloatingWindowText>😎 保存しました</S.FloatingWindowText>
+          </FloatingWindow>
+        </S.FloatingWindowWrapper>
+      )}
     </S.Wrapper>
   );
 };
