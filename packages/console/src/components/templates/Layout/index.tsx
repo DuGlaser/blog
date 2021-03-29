@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useAuthUser } from 'next-firebase-auth';
 
 import { LoggedinUser } from '@/components/molecules';
@@ -10,6 +11,11 @@ export const Layout: React.FC = ({ children }) => {
   return (
     <S.Wrapper>
       <S.Header>
+        <Link href="/">
+          <a style={{ textDecoration: 'none' }}>
+            <S.Icon>管</S.Icon>
+          </a>
+        </Link>
         {authUser.firebaseUser && (
           <LoggedinUser
             name={authUser.firebaseUser.displayName || ''}
