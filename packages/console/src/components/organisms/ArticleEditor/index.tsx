@@ -4,7 +4,7 @@ import { useStopTyping } from 'use-stop-typing';
 
 import { FlatButton, OutlineButton, TextFilled } from '@/components/atoms';
 import { Editor, Preview } from '@/components/molecules';
-import { useSaveArticle } from '@/hooks/useSaveArticle';
+import { useSaveArticle } from '@/hooks';
 import { FirestoreArticle } from '@/types/article';
 
 import * as S from './style';
@@ -66,6 +66,21 @@ export const ArticleEditor: React.VFC<Props> = ({
           <FlatButton
             bgColor={theme.color.primary}
             textColor={theme.color.white}
+            onClick={() => {
+              if (confirm(`${isPublic ? '非公開に' : '公開'}しますか？`)) {
+                if (!(title && editor)) {
+                  alert('titleやbodyが入力できていません');
+                  return;
+                }
+
+                handleSave({
+                  public: !isPublic,
+                  title: title,
+                  body: editor,
+                });
+                setIsPublic((pre) => !pre);
+              }
+            }}
           >
             {isPublic ? '非公開にする' : '公開する'}
           </FlatButton>
