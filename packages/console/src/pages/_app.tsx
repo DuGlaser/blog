@@ -10,6 +10,11 @@ initAuth();
 function MyApp({ Component, pageProps }: any) {
   return (
     <ThemeProvider theme={theme}>
+      <style jsx global>{`
+        body {
+          background-color: ${theme.color.bgColor};
+        }
+      `}</style>
       <Component {...pageProps} />
     </ThemeProvider>
   );
