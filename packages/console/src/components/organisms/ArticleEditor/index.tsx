@@ -109,7 +109,12 @@ export const ArticleEditor: React.VFC<Props> = ({
       {isUpdate && (
         <S.FloatingWindowWrapper>
           <FloatingWindow>
-            <S.FloatingWindowText>😎 保存しました</S.FloatingWindowText>
+            <S.FloatingWindowText>
+              <span role="img" aria-label="sunglasses">
+                😎
+              </span>{' '}
+              保存しました
+            </S.FloatingWindowText>
           </FloatingWindow>
         </S.FloatingWindowWrapper>
       )}
