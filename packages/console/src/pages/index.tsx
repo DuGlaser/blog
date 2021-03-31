@@ -37,7 +37,7 @@ const S = {
 };
 
 const IndexPage: NextPage = () => {
-  const [value, loading, error] = useGetArticlesDataOnce();
+  const [value] = useGetArticlesDataOnce();
   const router = useRouter();
   const theme = useTheme();
 

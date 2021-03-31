@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { GetServerSideProps, GetStaticProps, NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { AuthAction, withAuthUser } from 'next-firebase-auth';
 
 import { ArticleEditor } from '@/components/organisms';
@@ -39,7 +39,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 };
 
 const ArticlePage: NextPage<Props> = ({ articleId }) => {
-  const [value, loading, error] = useGetArticleData(articleId);
+  const [value, loading] = useGetArticleData(articleId);
 
   return (
     <Layout>

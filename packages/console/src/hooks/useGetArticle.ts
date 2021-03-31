@@ -5,7 +5,7 @@ import {
   useDocumentData,
 } from 'react-firebase-hooks/firestore';
 
-import { Article, FirestoreArticle } from '@/types/article';
+import { Article } from '@/types/article';
 import firebase from '@/utils/firebase';
 
 export const useGetArticlesDataOnce = () => {
