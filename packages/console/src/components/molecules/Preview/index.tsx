@@ -1,3 +1,5 @@
+import 'github-markdown-css';
+
 import { parser } from '@blog/parser';
 import { useMemo } from 'react';
 
@@ -12,5 +14,5 @@ export const Preview: React.VFC<Props> = ({ value }) => {
     return parser(value);
   }, [value]);
 
-  return <S.Wrapper>{mdText}</S.Wrapper>;
+  return <S.Wrapper className="markdown-body">{mdText}</S.Wrapper>;
 };

@@ -13,4 +13,16 @@ export const Wrapper = styled.div`
   overflow-wrap: break-word;
 
   ${customScrollBar}
+
+  h1, h2 {
+    border-color: ${(props) => props.theme.color.gray};
+  }
+
+  pre {
+    background-color: ${(props) => props.theme.color.bgColor};
+  }
+
+  blockquote {
+    border-left-color: ${(props) => props.theme.color.gray};
+  }
 `;
