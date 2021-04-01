@@ -1,11 +1,11 @@
 import 'firebase/firestore';
 
+import { Article } from '@blog/core';
 import {
   useCollectionDataOnce,
   useDocumentData,
 } from 'react-firebase-hooks/firestore';
 
-import { Article } from '@/types/article';
 import firebase from '@/utils/firebase';
 
 export const useGetArticlesDataOnce = () => {

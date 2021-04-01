@@ -1,8 +1,8 @@
 import 'firebase/firestore';
 
+import { FirestoreArticle } from '@blog/core';
 import { useState } from 'react';
 
-import { FirestoreArticle } from '@/types/article';
 import firebase from '@/utils/firebase';
 
 export const useSaveArticle = (id = '') => {
