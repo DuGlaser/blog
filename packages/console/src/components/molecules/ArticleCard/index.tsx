@@ -1,9 +1,8 @@
+import { Article } from '@blog/core';
 import { useTheme } from '@emotion/react';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
-
-import { Article } from '@/types/article';
 
 import * as S from './style';
 

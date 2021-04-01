@@ -1,3 +1,4 @@
+import { Article } from '@blog/core';
 import { useTheme } from '@emotion/react';
 import React, { useCallback, useRef, useState } from 'react';
 import { useStopTyping } from 'use-stop-typing';
@@ -10,7 +11,6 @@ import {
 } from '@/components/atoms';
 import { Editor, Preview } from '@/components/molecules';
 import { useSaveArticle } from '@/hooks';
-import { Article } from '@/types/article';
 
 import * as S from './style';
 
