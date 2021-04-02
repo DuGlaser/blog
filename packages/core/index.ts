@@ -3,6 +3,7 @@ export type Article = {
   public: boolean;
   title: string;
   body: string;
+  tags: string[];
   updated_at: number;
   created_at: number;
 };
