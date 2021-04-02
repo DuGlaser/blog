@@ -1,8 +1,10 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import articles from '.contents/articles.json';
 import { Article } from '@blog/core';
-import { Layout } from '@/components/templates';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+
 import { ArticleContent } from '@/components/molecules/ArticleContent';
+import { Layout } from '@/components/templates';
+
+import articles from '.contents/articles.json';
 
 type Props = {
   article: Article;

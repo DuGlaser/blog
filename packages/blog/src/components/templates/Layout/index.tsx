@@ -1,5 +1,6 @@
-import { Header } from '@/components/atoms';
 import styled from '@emotion/styled';
+
+import { Header } from '@/components/atoms';
 
 const Content = styled.div`
   width: 100%;

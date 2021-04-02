@@ -1,8 +1,9 @@
-import { Code, Tag } from '@/components/atoms';
-import { formatDate } from '@/utils/formatDate';
 import { Article } from '@blog/core';
 import { parser } from '@blog/parser';
 import { useMemo } from 'react';
+
+import { Code, Tag } from '@/components/atoms';
+import { formatDate } from '@/utils/formatDate';
 
 import * as S from './style';
 

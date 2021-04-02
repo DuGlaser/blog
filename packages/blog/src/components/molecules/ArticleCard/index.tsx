@@ -1,7 +1,9 @@
-import { Tag } from '@/components/atoms';
-import { formatDate } from '@/utils/formatDate';
 import { Article } from '@blog/core';
 import { useMemo } from 'react';
+
+import { Tag } from '@/components/atoms';
+import { formatDate } from '@/utils/formatDate';
+
 import * as S from './style';
 
 export type Props = { article: Article };
