@@ -10,6 +10,7 @@ export const WrapperAnchor = styled.a`
 `;
 
 export const Title = styled.h1`
+  display: inline-block;
   color: ${(props) => props.theme.color.white};
   font-weight: bold;
 
