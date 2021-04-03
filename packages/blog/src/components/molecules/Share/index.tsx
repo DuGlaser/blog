@@ -3,7 +3,6 @@ import path from 'path';
 import {
   HatenaIcon,
   HatenaShareButton,
-  HatenaShareCount,
   TwitterIcon,
   TwitterShareButton,
 } from 'react-share';
