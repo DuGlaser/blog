@@ -1,4 +1,5 @@
 import { Header } from '@/components/atoms';
+
 import * as S from './style';
 
 export const Layout: React.FC = ({ children }) => {
