@@ -6,10 +6,7 @@ import toremark from 'remark-parse';
 import remarkTorehype from 'remark-rehype';
 import unified from 'unified';
 
-export const parser = (
-  mdText: string,
-  components?: ComponentOptions<any>['components']
-) => {
+export const parser = (mdText: string, components?: { [key: string]: any }) => {
   const result = unified()
     .use(toremark)
     .use(gfm)
