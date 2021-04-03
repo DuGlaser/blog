@@ -1,7 +1,7 @@
 import { Article } from '@blog/core';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
-import { ArticleContent } from '@/components/molecules/ArticleContent';
+import { ArticleContent } from '@/components/molecules';
 import { Layout } from '@/components/templates';
 
 import articles from '.contents/articles.json';
