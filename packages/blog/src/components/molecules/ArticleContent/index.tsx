@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { Code, Tag } from '@/components/atoms';
 import { formatDate } from '@/utils/formatDate';
 
+import { Share } from '../Share';
 import * as S from './style';
 
 export const ArticleContent: React.VFC<{ article: Article }> = ({
@@ -36,6 +37,9 @@ export const ArticleContent: React.VFC<{ article: Article }> = ({
         {parser(article.body, {
           code: Code,
         })}
+        <S.ShareWrapper>
+          <Share title={article.title} />
+        </S.ShareWrapper>
       </S.Content>
     </>
   );

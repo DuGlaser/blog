@@ -103,3 +103,7 @@ export const TagWrapper = styled.div`
     margin-right: 1em;
   }
 `;
+
+export const ShareWrapper = styled.div`
+  margin-top: 2rem;
+`;
