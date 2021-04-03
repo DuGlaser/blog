@@ -13,7 +13,6 @@ const S = {
   Content: styled.div`
     width: 100%;
     max-width: 800px;
-
     margin: 0 auto;
     padding-top: 3rem;
   `,
@@ -26,13 +25,12 @@ const S = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     margin-bottom: 2rem;
   `,
 
   Title: styled.h2`
-    font-size: 2.4rem;
     color: ${(props) => props.theme.color.white};
+    font-size: 2.4rem;
   `,
 };
 

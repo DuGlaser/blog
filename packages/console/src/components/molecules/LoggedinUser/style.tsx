@@ -3,15 +3,13 @@ import { Property } from 'csstype';
 
 export const Wrapper = styled.div`
   display: inline-block;
-
   height: 100%;
 `;
 
 export const RowWrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
   height: 100%;
 `;
 
@@ -23,14 +21,12 @@ export const Username = styled.span(({ theme }) => ({
 
 export const OpenWindowIconWrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  aspect-ratio: 1 / 1;
+  justify-content: center;
   height: 80%;
-  margin-inline-start: 0.4rem;
-
   border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  margin-inline-start: 0.4rem;
 
   :hover {
     background-color: lightgrey;
@@ -51,10 +47,9 @@ export const FloatingWindowWrapper = styled.div<{
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
-
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 `;
 
 export const Item = styled.li`
