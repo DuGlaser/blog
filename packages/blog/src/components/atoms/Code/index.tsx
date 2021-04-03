@@ -6,7 +6,7 @@ type Props = {
   className: string;
 };
 
-export const Code: React.FC<Props> = ({ className, children }) => {
+const _Code: React.FC<Props> = ({ className, children }) => {
   const language = className.replace('language-', '');
   const content = children?.toString().trim();
   return (
@@ -23,4 +23,4 @@ export const Code: React.FC<Props> = ({ className, children }) => {
   );
 };
 
-export default React.memo(Code);
+export const Code = React.memo(_Code);
