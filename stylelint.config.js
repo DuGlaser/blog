@@ -3,6 +3,7 @@ module.exports = {
   plugins: ['stylelint-order', 'stylelint-config-rational-order/plugin'],
   rules: {
     'value-keyword-case': false,
+    'no-empty-source': false,
     // Property Order
     'order/properties-order': [[], { severity: 'warning' }],
     'plugin/rational-order': [
