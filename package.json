@@ -6,7 +6,12 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "eslint 'packages/**/*.tsx' 'packages/**/*.ts'"
+    "lint": "run-s lint:ts lint:css",
+    "lint:fix": "run-s lint:ts:fix lint:css:fix",
+    "lint:ts": "eslint 'packages/**/*.tsx' 'packages/**/*.ts'",
+    "lint:ts:fix": "eslint 'packages/**/*.tsx' 'packages/**/*.ts' --fix",
+    "lint:css": "stylelint './packages/**/*'.tsx",
+    "lint:css:fix": "stylelint './packages/**/*'.tsx --fix"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.15.0",
