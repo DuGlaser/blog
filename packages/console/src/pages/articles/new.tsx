@@ -7,17 +7,16 @@ import { Layout } from '@/components/templates';
 
 const S = {
   Flex: styled.div`
-    height: 100%;
-    width: 100%;
-
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
   `,
 
   Wrapper: styled.div`
-    height: 95%;
     width: 95%;
+    height: 95%;
   `,
 };
 

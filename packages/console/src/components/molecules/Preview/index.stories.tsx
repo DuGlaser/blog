@@ -5,8 +5,8 @@ import { Preview, Props } from './index';
 
 const S = {
   Wrapper: styled.div`
-    height: 80vh;
     width: 100%;
+    height: 80vh;
   `,
 };
 

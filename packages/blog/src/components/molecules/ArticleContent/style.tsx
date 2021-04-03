@@ -8,22 +8,22 @@ const markdownStyle = styled.div`
   h2,
   h3,
   h4 {
+    margin-top: 2.3em;
     margin-bottom: 0.5em;
     padding-bottom: 0.4em;
-    margin-top: 2.3em;
   }
 
   h1 {
     font-size: 1.7rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
   h2 {
     font-size: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   a {
@@ -36,9 +36,9 @@ const markdownStyle = styled.div`
   }
 
   p {
+    margin-top: 1em;
     font-size: 1rem;
     line-height: 2em;
-    margin-top: 1em;
   }
 
   li {
@@ -53,20 +53,16 @@ const markdownStyle = styled.div`
 
 export const Title = styled.h1`
   margin-bottom: 2rem;
-
   color: ${(props) => props.theme.color.lightGrey};
-  text-align: center;
-
   font-size: 2rem;
+  text-align: center;
 `;
 
 export const MetaWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   margin-bottom: 1rem;
-
   color: ${(props) => props.theme.color.gray};
 `;
 
@@ -75,11 +71,10 @@ export const Time = styled.time`
 `;
 
 export const Content = styled(markdownStyle)`
+  margin-top: 32px;
+  padding: 1.5rem 1.5rem;
   background-color: ${(props) => props.theme.color.base};
   border-radius: 8px;
-
-  padding: 1.5rem 1.5rem;
-  margin-top: 32px;
 
   & div :first-child {
     margin-top: 0;
@@ -90,9 +85,7 @@ export const TagWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   margin-bottom: -1em;
-
   font-weight: bold;
   font-size: 1.3rem;
 

@@ -10,7 +10,6 @@ export type Props = {
 const StyledDiv = styled.div<Props>(
   {
     display: 'inline-block',
-
     boxShadow: `
     0 1px 1.4px rgba(0, 0, 0, 0.028),
     0 2.3px 3.4px rgba(0, 0, 0, 0.04),

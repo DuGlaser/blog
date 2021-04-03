@@ -7,9 +7,8 @@ type Props = React.DetailedHTMLProps<
 
 const StyledImg = styled.img`
   height: 100%;
-
-  border-radius: 50%;
   border: none;
+  border-radius: 50%;
 `;
 
 export const Avatar: React.VFC<Props> = ({ ...props }) => {

@@ -13,7 +13,6 @@ export const Title = styled.h1`
   display: inline-block;
   color: ${(props) => props.theme.color.white};
   font-weight: bold;
-
   font-size: 2rem;
   line-height: 2rem;
 `;

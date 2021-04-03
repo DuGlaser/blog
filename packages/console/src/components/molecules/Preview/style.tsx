@@ -5,12 +5,11 @@ import { customScrollBar } from '@/utils/customScrollBar';
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.theme.color.base};
-  color: ${(props) => props.theme.color.gray};
   padding: 2rem;
-
   overflow-y: auto;
+  color: ${(props) => props.theme.color.gray};
   overflow-wrap: break-word;
+  background-color: ${(props) => props.theme.color.base};
 
   ${customScrollBar}
 
