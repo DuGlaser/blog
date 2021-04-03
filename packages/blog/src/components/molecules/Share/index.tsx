@@ -12,7 +12,9 @@ import * as S from './style';
 
 export const Share: React.VFC<{ title: string }> = ({ title }) => {
   const router = useRouter();
-  const url = path.join(config.siteUrl, router.asPath);
+
+  // NOTE: When you use Storybook, router is null
+  const url = path.join(config.siteUrl, router ? router.asPath : '');
 
   return (
     <S.Wrapper>

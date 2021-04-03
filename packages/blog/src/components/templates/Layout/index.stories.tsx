@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react/types-6-0';
 
-import { Header } from './index';
+import { Layout } from './index';
 
 export default {
-  title: 'atoms/Header',
-  component: Header,
+  title: 'templates/Layout',
+  component: Layout,
 } as Meta;
 
 export const Simple = () => {
-  return <Header />;
+  return <Layout />;
 };

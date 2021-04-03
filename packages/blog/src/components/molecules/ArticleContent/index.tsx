@@ -8,9 +8,10 @@ import { formatDate } from '@/utils/formatDate';
 import { Share } from '../Share';
 import * as S from './style';
 
-export const ArticleContent: React.VFC<{ article: Article }> = ({
-  article,
-}) => {
+export type Props = { article: Article };
+
+export const ArticleContent: React.VFC<Props> = ({ article }) => {
+  console.log(article);
   const createdAt = useMemo(() => formatDate(new Date(article.created_at)), [
     article.created_at,
   ]);

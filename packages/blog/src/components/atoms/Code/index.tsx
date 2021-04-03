@@ -23,4 +23,4 @@ const _Code: React.FC<Props> = ({ className, children }) => {
   );
 };
 
-export const Code = React.memo(_Code);
+export const Code: React.FC<Props> = React.memo<Props>(_Code);
