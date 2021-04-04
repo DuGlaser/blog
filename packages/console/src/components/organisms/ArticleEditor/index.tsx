@@ -84,7 +84,6 @@ export const ArticleEditor: React.VFC<Props> = ({
     tags: article.tags,
   });
 
-  // TODO: Use reducer...etc
   const [isUpdate, setIsUpdate] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
