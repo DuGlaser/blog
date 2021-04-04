@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { ModalDecorator } from '@/components/atoms';
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,6 +46,52 @@ export const FloatingWindowWrapper = styled.div`
   position: absolute;
   right: 24px;
   bottom: 24px;
+`;
+
+export const Modal = styled(ModalDecorator)`
+  position: relative;
+  &__Overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__Content {
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    margin-right: -50%;
+    padding: 1.5rem 2rem;
+    overflow: auto;
+    background: ${(props) => props.theme.color.base};
+    border-radius: 8px;
+    outline: none;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+export const ModalCloseButton = styled.span`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+`;
+
+export const ModalTitle = styled.span`
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: ${(props) => props.theme.color.white};
+  font-weight: bold;
+  font-size: 1.5rem;
 `;
 
 export const FloatingWindowText = styled.div`
