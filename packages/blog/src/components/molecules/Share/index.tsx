@@ -14,7 +14,7 @@ export const Share: React.VFC<{ title: string }> = ({ title }) => {
   const router = useRouter();
 
   // NOTE: When you use Storybook, router is null
-  const url = path.join(config.siteUrl, router ? router.asPath : '');
+  const url = path.posix.join(config.site.url, router ? router.asPath : '');
 
   return (
     <S.Wrapper>

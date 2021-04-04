@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { ArticleCard } from '@/components/molecules';
 import { Layout } from '@/components/templates/Layout';
 
+import { NextSeo } from 'next-seo';
 import articles from '.contents/articles.json';
+import { config } from 'site.config';
 
 const S = {
   ArticleAnchor: styled.a`
@@ -16,6 +18,23 @@ const S = {
 const IndexPage: NextPage = () => {
   return (
     <Layout>
+      <NextSeo
+        title={config.site.title}
+        description={config.site.description}
+        canonical={config.site.url}
+        openGraph={{
+          title: config.site.title,
+          type: 'blog',
+          url: config.site.url,
+          description: config.site.description,
+          site_name: config.site.title,
+        }}
+        twitter={{
+          handle: `@${config.twitter.id}`,
+          site: `@${config.twitter.id}`,
+          cardType: 'summary_large_image',
+        }}
+      />
       {articles.map((article) => (
         <Link
           key={`article-card-${article.id}`}
