@@ -23,8 +23,6 @@ const Template: Story<Props> = () => {
     setValue(v);
   }, []);
 
-  console.log({ value });
-
   return (
     <S.Wrapper>
       <Editor value={value} onChange={handleOnchange} />

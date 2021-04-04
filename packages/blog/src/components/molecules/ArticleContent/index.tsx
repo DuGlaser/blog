@@ -11,7 +11,6 @@ import * as S from './style';
 export type Props = { article: Article };
 
 export const ArticleContent: React.VFC<Props> = ({ article }) => {
-  console.log(article);
   const createdAt = useMemo(() => formatDate(new Date(article.created_at)), [
     article.created_at,
   ]);
