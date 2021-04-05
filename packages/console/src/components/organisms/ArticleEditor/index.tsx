@@ -1,4 +1,4 @@
-import { Article, FirestoreArticle } from '@blog/core';
+import { Article } from '@blog/core';
 import { useTheme } from '@emotion/react';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,56 +15,27 @@ import { Editor, Preview, SelectTagBox } from '@/components/molecules';
 import { useSaveArticle } from '@/hooks';
 
 import * as S from './style';
+import { ActionType, reducer, Reducer } from './reducer';
+import { useDropzone } from 'react-dropzone';
+import firebase from '@/utils/firebase';
+import 'firebase/storage';
+import { formatMDImage } from '@/utils/formatMDImage';
 
 export type Props = {
   article?: Article;
 };
 
-type State = Omit<FirestoreArticle, 'updated_at' | 'created_at'>;
+const uploadImage = async (file: File): Promise<string> => {
+  const storage = firebase
+    .app()
+    .storage(process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET_URL);
+  await storage.ref(`images/${file.name}`).put(file);
+  const url: string = await storage
+    .ref('images')
+    .child(file.name)
+    .getDownloadURL();
 
-enum ActionType {
-  UPDATE_BODY = 'UPDATE_BODY',
-  UPDATE_TITLE = 'UPDATE_TITLE',
-  UPDATE_TAGS = 'UPDATE_TAGS',
-  TOGGLE_PUBLIC = 'TOGGLE_PUBLIC',
-}
-
-type Action = {
-  type: ActionType;
-  payload: State;
-};
-
-type Reducer = React.Reducer<State, Action>;
-
-const reducer: Reducer = (state, action) => {
-  switch (action.type) {
-    case ActionType.UPDATE_BODY:
-      return {
-        ...state,
-        body: action.payload.body,
-      };
-
-    case ActionType.UPDATE_TITLE:
-      return {
-        ...state,
-        title: action.payload.title,
-      };
-
-    case ActionType.UPDATE_TAGS:
-      return {
-        ...state,
-        tags: action.payload.tags,
-      };
-
-    case ActionType.TOGGLE_PUBLIC:
-      return {
-        ...state,
-        public: !state.public,
-      };
-
-    default:
-      throw new Error();
-  }
+  return url;
 };
 
 export const ArticleEditor: React.VFC<Props> = ({
@@ -82,6 +53,27 @@ export const ArticleEditor: React.VFC<Props> = ({
     body: article.body,
     public: article.public,
     tags: article.tags,
+  });
+
+  const { getRootProps } = useDropzone({
+    noClick: true,
+    accept: 'image/jpeg, image/png',
+    onDrop: async (files) => {
+      Promise.all(
+        files.map(async (file) => {
+          try {
+            const url = uploadImage(file);
+            return Promise.resolve<string>(url);
+          } catch (error) {
+            console.warn(error);
+            return Promise.reject(error);
+          }
+        })
+      ).then((data) => {
+        const urlStrings = data.map((url) => formatMDImage(url)).join('\n');
+        handleChangeBody(state.body + urlStrings);
+      });
+    },
   });
 
   const [isUpdate, setIsUpdate] = useState(false);
@@ -165,11 +157,13 @@ export const ArticleEditor: React.VFC<Props> = ({
         </S.ButtonWrapper>
       </S.Header>
       <S.Content>
-        <Editor
-          ref={editorRef}
-          value={state.body}
-          onChange={handleChangeBody}
-        />
+        <S.EditorWrapper {...getRootProps({ className: 'dropzone' })}>
+          <Editor
+            ref={editorRef}
+            value={state.body}
+            onChange={handleChangeBody}
+          />
+        </S.EditorWrapper>
         <S.Border />
         <Preview value={state.body} />
       </S.Content>
