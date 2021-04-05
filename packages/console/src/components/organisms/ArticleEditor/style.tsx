@@ -35,6 +35,10 @@ export const Content = styled.div`
   overflow-y: auto;
 `;
 
+export const EditorWrapper = styled.div`
+  width: 100%;
+`;
+
 export const Border = styled.div`
   width: 3px;
   height: 100%;

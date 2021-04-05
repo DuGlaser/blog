@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
+import { config } from 'site.config';
 
 import { ArticleCard } from '@/components/molecules';
 import { Layout } from '@/components/templates/Layout';
 
-import { NextSeo } from 'next-seo';
 import articles from '.contents/articles.json';
-import { config } from 'site.config';
 
 const S = {
   ArticleAnchor: styled.a`
