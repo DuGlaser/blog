@@ -1,8 +1,11 @@
+import 'firebase/storage';
+
 import { Article } from '@blog/core';
 import { useTheme } from '@emotion/react';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useReducer, useRef, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 import { useStopTyping } from 'use-stop-typing';
 
 import {
@@ -13,13 +16,11 @@ import {
 } from '@/components/atoms';
 import { Editor, Preview, SelectTagBox } from '@/components/molecules';
 import { useSaveArticle } from '@/hooks';
-
-import * as S from './style';
-import { ActionType, reducer, Reducer } from './reducer';
-import { useDropzone } from 'react-dropzone';
 import firebase from '@/utils/firebase';
-import 'firebase/storage';
 import { formatMDImage } from '@/utils/formatMDImage';
+
+import { ActionType, Reducer, reducer } from './reducer';
+import * as S from './style';
 
 export type Props = {
   article?: Article;

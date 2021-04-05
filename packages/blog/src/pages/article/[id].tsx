@@ -1,14 +1,14 @@
 import { Article } from '@blog/core';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import path from 'path';
+import { config } from 'site.config';
 
 import { ArticleContent } from '@/components/molecules';
 import { Layout } from '@/components/templates';
 
 import articles from '.contents/articles.json';
-import { NextSeo } from 'next-seo';
-import { config } from 'site.config';
-import { useRouter } from 'next/router';
-import path from 'path';
 
 type Props = {
   article: Article;
