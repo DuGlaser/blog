@@ -1,5 +1,5 @@
 import React from 'react';
-import rehypeToreact, { ComponentOptions } from 'rehype-react';
+import rehypeToreact from 'rehype-react';
 import breaks from 'remark-breaks';
 import gfm from 'remark-gfm';
 import toremark from 'remark-parse';
