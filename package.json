@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "yarn workspaces run build",
     "lint": "run-s lint:ts lint:css",
     "lint:fix": "run-s lint:ts:fix lint:css:fix",
     "lint:ts": "eslint 'packages/**/*.tsx' 'packages/**/*.ts'",
