@@ -1,6 +1,7 @@
 import 'modern-css-reset';
 
 import { ThemeProvider } from '@emotion/react';
+import { DefaultSeo } from 'next-seo';
 
 import initAuth from '@/utils/initAuth';
 import { theme } from '@/utils/theme';
@@ -15,6 +16,10 @@ function MyApp({ Component, pageProps }: any) {
           background-color: ${theme.color.bgColor};
         }
       `}</style>
+      <DefaultSeo
+        dangerouslySetAllPagesToNoIndex={true}
+        dangerouslySetAllPagesToNoFollow={true}
+      />
       <Component {...pageProps} />
     </ThemeProvider>
   );
