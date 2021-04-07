@@ -18,6 +18,10 @@ export const ArticleContent: React.VFC<Props> = ({ article }) => {
     article.created_at,
   ]);
 
+  const { element } = parser(article.body, {
+    code: Code,
+  });
+
   return (
     <>
       <S.Title>{article.title}</S.Title>
@@ -34,9 +38,7 @@ export const ArticleContent: React.VFC<Props> = ({ article }) => {
         ))}
       </S.TagWrapper>
       <S.Content>
-        {parser(article.body, {
-          code: Code,
-        })}
+        {element}
         <S.ShareWrapper>
           <Share title={article.title} />
         </S.ShareWrapper>

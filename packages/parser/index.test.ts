@@ -4,62 +4,62 @@ import { parser } from './index';
 
 describe('parser', () => {
   test('# test', () => {
-    const result = parser('# test');
-    const component = renderer.create(result);
+    const { element } = parser('# test');
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('## test', () => {
-    const result = parser('## test');
-    const component = renderer.create(result);
+    const { element } = parser('## test');
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('> test', () => {
-    const result = parser('> test');
-    const component = renderer.create(result);
+    const { element } = parser('> test');
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('- test', () => {
-    const result = parser('- test');
-    const component = renderer.create(result);
+    const { element } = parser('- test');
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('* test', () => {
-    const result = parser('* test');
-    const component = renderer.create(result);
+    const { element } = parser('* test');
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('code', () => {
-    const result = parser(`
+    const { element } = parser(`
                           \`\`\`js
                             console.log('test')
                           \`\`\`
                           `);
-    const component = renderer.create(result);
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('break line', () => {
-    const result = parser(`hoge
+    const { element } = parser(`hoge
                            hoge`);
-    const component = renderer.create(result);
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('[example](http://example.com)', () => {
-    const result = parser('[example](http://example.com)');
-    const component = renderer.create(result);
+    const { element } = parser('[example](http://example.com)');
+    const component = renderer.create(element);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

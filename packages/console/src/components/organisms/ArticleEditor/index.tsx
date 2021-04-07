@@ -1,10 +1,17 @@
 import 'firebase/storage';
 
 import { Article } from '@blog/core';
+import { parser } from '@blog/parser';
 import { useTheme } from '@emotion/react';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useCallback, useReducer, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useStopTyping } from 'use-stop-typing';
 
@@ -45,6 +52,7 @@ export const ArticleEditor: React.VFC<Props> = ({
     public: false,
     title: '',
     body: '',
+    description: '',
     tags: [],
   },
 }) => {
@@ -52,6 +60,7 @@ export const ArticleEditor: React.VFC<Props> = ({
   const [state, dispatch] = useReducer<Reducer>(reducer, {
     title: article.title,
     body: article.body,
+    description: article.description,
     public: article.public,
     tags: article.tags,
   });
@@ -80,6 +89,11 @@ export const ArticleEditor: React.VFC<Props> = ({
   const [isUpdate, setIsUpdate] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
+  const formattedDescription = useMemo(() => {
+    const { plainText } = parser(article.body);
+    return plainText.replace(/[\n|\r|\n\r]+/g, ' ').slice(0, 119);
+  }, [article.body]);
+
   const handleSave = useSaveArticle(article.id);
   const editorRef = useRef<HTMLTextAreaElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
@@ -92,6 +106,7 @@ export const ArticleEditor: React.VFC<Props> = ({
           public: state.public,
           title: state.title,
           body: state.body,
+          description: formattedDescription,
         });
         setIsUpdate(true);
         setTimeout(() => setIsUpdate(false), 2500);

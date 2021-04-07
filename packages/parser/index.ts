@@ -1,13 +1,15 @@
 import React from 'react';
 import rehypeToreact from 'rehype-react';
+import remark from 'remark';
 import breaks from 'remark-breaks';
 import gfm from 'remark-gfm';
 import toremark from 'remark-parse';
 import remarkTorehype from 'remark-rehype';
+import strip from 'strip-markdown';
 import unified from 'unified';
 
 export const parser = (mdText: string, components?: { [key: string]: any }) => {
-  const result = unified()
+  const element = unified()
     .use(toremark)
     .use(gfm)
     .use(breaks)
@@ -18,5 +20,7 @@ export const parser = (mdText: string, components?: { [key: string]: any }) => {
     })
     .processSync(mdText).result as React.ReactElement;
 
-  return result;
+  const plainText = remark().use(strip).processSync(mdText).contents.toString();
+
+  return { element, plainText };
 };
