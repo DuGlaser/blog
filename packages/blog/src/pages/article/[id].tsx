@@ -50,12 +50,22 @@ const ArticlePage: NextPage<Props> = ({ article }) => {
     <Layout>
       <NextSeo
         title={article.title}
+        description={article.description}
         canonical={url}
         openGraph={{
           title: article.title,
+          description: article.description,
           type: 'blog',
           url: url,
           site_name: config.site.title,
+          images: [
+            {
+              url: path.posix.join(
+                config.site.url,
+                `/api/ogp?title=${article.title}`
+              ),
+            },
+          ],
         }}
         twitter={{
           handle: `@${config.twitter.id}`,
