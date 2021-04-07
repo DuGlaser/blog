@@ -1,7 +1,5 @@
 // Ref: https://github.com/tdkn/blog/blob/main/pages/api/og/%5B...path%5D.ts
 
-import 'playwright-browsers.json';
-
 import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
