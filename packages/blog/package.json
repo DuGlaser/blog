@@ -56,12 +56,5 @@
   },
   "optionalDependencies": {
     "playwright": "^1.10.0"
-  },
-  "workspaces": {
-    "nohoist": [
-      "playwright",
-      "playwright-core",
-      "playwright-core"
-    ]
   }
 }
