@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "run-s build:articles build:next",
+    "build": "run-s build:articles build:playwright build:next",
+    "build:playwright": "cp ../../node_modules/playwright-core/browsers.json ./playwright-browsers.json",
     "build:next": "next build",
     "build:articles": "ts-node --project tsconfig.builder.json -r tsconfig-paths/register ./src/builder/article.ts",
     "start": "next start",
