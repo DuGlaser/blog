@@ -62,7 +62,7 @@ const ArticlePage: NextPage<Props> = ({ article }) => {
             {
               url: path.posix.join(
                 config.site.url,
-                `/api/ogp?title=${article.title}`
+                `/api/og?title=${article.title}`
               ),
             },
           ],
