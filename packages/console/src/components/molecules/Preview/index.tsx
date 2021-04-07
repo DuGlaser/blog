@@ -11,7 +11,8 @@ export type Props = {
 
 export const Preview: React.VFC<Props> = ({ value }) => {
   const mdText = useMemo(() => {
-    return parser(value);
+    const { element } = parser(value);
+    return element;
   }, [value]);
 
   return <S.Wrapper className="markdown-body">{mdText}</S.Wrapper>;
