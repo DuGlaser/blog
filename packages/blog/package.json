@@ -61,7 +61,7 @@
     "nohoist": [
       "playwright",
       "playwright-core",
-      "playwright-core"
+      "playwright-aws-lambda"
     ]
   }
 }
