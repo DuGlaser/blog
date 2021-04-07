@@ -1,8 +1,0 @@
-{
-  "rewrites": [{ "source": "/api/og/", "destination": "/api/og" }],
-  "functions": {
-    "pages/api/og.tsx": {
-      "includeFiles": "node_modules/playwright-core/browsers.json"
-    }
-  }
-}
