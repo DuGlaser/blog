@@ -36,7 +36,7 @@ const styles = (font: string) => `
 
 const Content: React.VFC<{ title: string; font: string }> = (props) => {
   return (
-    <html>
+    <html lang="ja">
       <head>
         <style dangerouslySetInnerHTML={{ __html: styles(props.font) }} />
       </head>
