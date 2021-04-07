@@ -48,12 +48,14 @@ const Content: React.VFC<{ title: string; font: string }> = (props) => {
 };
 
 const getLaunchOptions = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV !== 'production') {
     return {
       args: [],
       executablePath: '/usr/bin/google-chrome-stable',
       headless: true,
     };
+  } else {
+    return {};
   }
 };
 
@@ -62,7 +64,6 @@ const renderOGP = (title: string) => {
     process.cwd(),
     './assets/DelaGothicOne-Regular.ttf'
   );
-  console.log(fontPath);
   const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
   const element = React.createElement(Content, { title, font });
@@ -71,6 +72,7 @@ const renderOGP = (title: string) => {
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(process.env.NODE_ENV);
   if (req.query.title && typeof req.query.title === 'string') {
     const viewport = { width: 1200, height: 630 };
 
