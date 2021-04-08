@@ -55,7 +55,9 @@ const getLaunchOptions = () => {
       headless: true,
     };
   } else {
-    return {};
+    return {
+      headless: true,
+    };
   }
 };
 
