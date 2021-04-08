@@ -91,7 +91,7 @@ export const ArticleEditor: React.VFC<Props> = ({
 
   const formattedDescription = useMemo(() => {
     const { plainText } = parser(article.body);
-    return plainText.replace(/[\n|\r|\n\r]+/g, ' ').slice(0, 119);
+    return plainText.replace(/[\n|\r|\n\r]+/g, ' ').slice(0, 116) + '...';
   }, [article.body]);
 
   const handleSave = useSaveArticle(article.id);
