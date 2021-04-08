@@ -1,11 +1,11 @@
 import fs from 'fs';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import path from 'path';
 
 import { theme } from '@/utils/theme';
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async () => {
   const fontPath = path.resolve(
     process.cwd(),
     './assets/DelaGothicOne-Regular.ttf'
