@@ -50,7 +50,7 @@ const OgPage: NextPage<{ font: string }> = ({ font }) => {
         }
       `}</style>
       <div>
-        <h1>{title}</h1>
+        <h1>{title?.toString()}</h1>
       </div>
     </>
   );
