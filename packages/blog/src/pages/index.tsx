@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
+import path from 'path';
 import { config } from 'site.config';
 
 import { ArticleCard } from '@/components/molecules';
@@ -28,6 +29,11 @@ const IndexPage: NextPage = () => {
           url: config.site.url,
           description: config.site.description,
           site_name: config.site.title,
+          images: [
+            {
+              url: path.posix.join(config.site.url, `/api/og?title=永遠にWIP`),
+            },
+          ],
         }}
         twitter={{
           handle: `@${config.twitter.id}`,
