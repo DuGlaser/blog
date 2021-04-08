@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.header`
   padding: 2rem 1.5rem;
-  cursor: pointer;
 `;
 
 export const WrapperAnchor = styled.a`
@@ -15,4 +14,5 @@ export const Title = styled.h1`
   font-weight: bold;
   font-size: 2rem;
   line-height: 2rem;
+  cursor: pointer;
 `;
