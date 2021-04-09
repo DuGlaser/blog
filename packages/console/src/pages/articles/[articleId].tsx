@@ -8,7 +8,6 @@ import { useGetArticleData } from '@/hooks';
 
 type Props = {
   articleId: string;
-  id: string | undefined;
 };
 
 const S = {
@@ -30,19 +29,16 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   params,
 }) => {
   const articleId = params?.articleId as string;
-  const id = process.env.FIREBASE_ADMIN_ID;
 
   return {
     props: {
       articleId,
-      id,
     },
   };
 };
 
-const ArticlePage: NextPage<Props> = ({ articleId, id }) => {
+const ArticlePage: NextPage<Props> = ({ articleId }) => {
   const [value, loading] = useGetArticleData(articleId);
-  console.log({ id });
 
   return (
     <Layout>
