@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import {
-  AuthAction,
-  withAuthUser,
-  withAuthUserTokenSSR,
-} from 'next-firebase-auth';
+import { AuthAction, withAuthUser } from 'next-firebase-auth';
 
 import { ArticleEditor } from '@/components/organisms';
 import { Layout } from '@/components/templates';
@@ -35,18 +31,6 @@ const NewPage: NextPage = () => {
     </Layout>
   );
 };
-
-export const getServerSideProps = withAuthUserTokenSSR({
-  whenUnauthed: AuthAction.REDIRECT_TO_LOGIN,
-})(async ({ AuthUser }) => {
-  if (AuthUser.id !== process.env.FIREBASE_ADMIN_ID) {
-    throw `Invalid user ${AuthUser.email}`;
-  }
-
-  return {
-    props: {},
-  };
-});
 
 export default withAuthUser({
   whenUnauthedBeforeInit: AuthAction.RENDER,
