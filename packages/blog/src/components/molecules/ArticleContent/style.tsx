@@ -29,6 +29,7 @@ const markdownStyle = styled.div`
   a {
     color: ${(props) => props.theme.color.primary};
     text-decoration: none;
+    word-break: break-all;
 
     :hover {
       text-decoration: underline;
