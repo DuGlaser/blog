@@ -2,7 +2,11 @@ import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { AuthAction, withAuthUser } from 'next-firebase-auth';
+import {
+  AuthAction,
+  withAuthUser,
+  withAuthUserTokenSSR,
+} from 'next-firebase-auth';
 
 import { FlatButton } from '@/components/atoms';
 import { ArticleCard } from '@/components/molecules/ArticleCard';
@@ -67,6 +71,18 @@ const IndexPage: NextPage = () => {
     </Layout>
   );
 };
+
+export const getServerSideProps = withAuthUserTokenSSR({
+  whenUnauthed: AuthAction.REDIRECT_TO_LOGIN,
+})(async ({ AuthUser }) => {
+  if (AuthUser.id !== process.env.FIREBASE_ADMIN_ID) {
+    throw `Invalid user ${AuthUser.email}`;
+  }
+
+  return {
+    props: {},
+  };
+});
 
 export default withAuthUser({
   whenUnauthedBeforeInit: AuthAction.RETURN_NULL,
