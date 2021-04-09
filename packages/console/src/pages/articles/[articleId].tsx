@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
-import { GetServerSideProps, NextPage } from 'next';
-import { AuthAction, withAuthUser } from 'next-firebase-auth';
+import { NextPage } from 'next';
+import {
+  AuthAction,
+  withAuthUser,
+  withAuthUserTokenSSR,
+} from 'next-firebase-auth';
 
 import { ArticleEditor } from '@/components/organisms';
 import { Layout } from '@/components/templates';
@@ -25,18 +29,6 @@ const S = {
   `,
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  params,
-}) => {
-  const articleId = params?.articleId as string;
-
-  return {
-    props: {
-      articleId,
-    },
-  };
-};
-
 const ArticlePage: NextPage<Props> = ({ articleId }) => {
   const [value, loading] = useGetArticleData(articleId);
 
@@ -48,6 +40,22 @@ const ArticlePage: NextPage<Props> = ({ articleId }) => {
     </Layout>
   );
 };
+
+export const getServerSideProps = withAuthUserTokenSSR({
+  whenUnauthed: AuthAction.REDIRECT_TO_LOGIN,
+})(async ({ AuthUser, params }) => {
+  if (AuthUser.id !== process.env.FIREBASE_ADMIN_ID) {
+    throw `Invalid user ${AuthUser.email}`;
+  }
+
+  const articleId = params?.articleId as string;
+
+  return {
+    props: {
+      articleId,
+    },
+  };
+});
 
 export default withAuthUser<Props>({
   whenUnauthedBeforeInit: AuthAction.RETURN_NULL,
