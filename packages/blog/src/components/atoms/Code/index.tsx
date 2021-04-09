@@ -7,12 +7,12 @@ type Props = {
 };
 
 const _Code: React.FC<Props> = ({ className, children }) => {
-  const language = className.replace('language-', '');
+  const language = className ? className.replace('language-', '') : '';
   const content = children?.toString().trim();
   return (
     <div>
       <SyntaxHighlighter
-        showLineNumbers={true}
+        showLineNumbers={!!className}
         wrapLines={true}
         language={language}
         style={nord}
