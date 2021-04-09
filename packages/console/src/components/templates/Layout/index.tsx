@@ -8,6 +8,10 @@ import * as S from './style';
 export const Layout: React.FC = ({ children }) => {
   const authUser = useAuthUser();
 
+  if (authUser.firebaseUser?.email !== 'duglaser0618@gmail.com') {
+    authUser.signOut();
+  }
+
   return (
     <S.Wrapper>
       <S.Header>
