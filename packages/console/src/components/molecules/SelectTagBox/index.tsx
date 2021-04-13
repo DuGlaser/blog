@@ -24,7 +24,7 @@ export const SelectTagBox: React.VFC<Props> = ({
   const theme = useTheme();
   const [inputValue, setInputValue] = useState('');
   const [value, setValue] = useState<ValueObject[]>(
-    _value.map((v) => createOption(v))
+    _value ? _value.map((v) => createOption(v)) : []
   );
 
   const handleChange = (value: any) => {
