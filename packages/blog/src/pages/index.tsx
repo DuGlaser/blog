@@ -47,11 +47,8 @@ const IndexPage: NextPage = () => {
         }}
       />
       {articles.map((article) => (
-        <S.ArticleWrapper>
-          <Link
-            key={`article-card-${article.id}`}
-            href={`/article/${article.id}`}
-          >
+        <S.ArticleWrapper key={`article-card-${article.id}`}>
+          <Link href={`/article/${article.id}`}>
             <S.ArticleAnchor>
               <ArticleCard article={article} />
             </S.ArticleAnchor>
