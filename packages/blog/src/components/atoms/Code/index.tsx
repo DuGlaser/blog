@@ -14,7 +14,7 @@ const StyledCode = styled.code`
   background-color: ${(props) => props.theme.color.bgColor};
 `;
 
-const _Code: React.FC<Props> = ({ className, children, ...props }) => {
+const _Code: React.FC<Props> = ({ className, children }) => {
   if (!className) {
     return <StyledCode>{children}</StyledCode>;
   }
