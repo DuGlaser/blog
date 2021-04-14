@@ -50,6 +50,12 @@ const markdownStyle = styled.div`
   ol {
     margin: 1.4rem 0;
   }
+
+  blockquote {
+    margin: 1.4rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid ${(props) => props.theme.color.primary};
+  }
 `;
 
 export const Title = styled.h1`
