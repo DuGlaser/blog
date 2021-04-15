@@ -1,7 +1,7 @@
+import { markdownStyleMixin } from '@blog/util';
 import styled from '@emotion/styled';
 
 import { customScrollBar } from '@/utils/customScrollBar';
-import { markdownStyleMixin } from '@blog/util';
 
 const markdownStyle = styled.div`
   ${(props) =>
