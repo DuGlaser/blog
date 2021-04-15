@@ -1,0 +1,13 @@
+{
+  "name": "@blog/util",
+  "version": "1.0.0",
+  "author": "DuGlaser <duglaser0618@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "yarn clean && tsc"
+  }
+}
