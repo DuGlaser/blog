@@ -1,4 +1,4 @@
-import unified, { Plugin } from 'unified';
+import { Plugin } from 'unified';
 import { Node } from 'unist';
 import visit from 'unist-util-visit';
 
@@ -13,7 +13,7 @@ type ImgNode = {
   url?: string;
 } & Node;
 
-export const imageSize: Plugin = (option) => {
+export const imageSize: Plugin = () => {
   const find = /=[0-9]+x[0-9]+/;
 
   const visitor: visit.Visitor<ImgNode> = (node) => {
