@@ -4,6 +4,10 @@ type MarkdownColor = {
 };
 
 export const markdownStyleMixin = (color: MarkdownColor) => `
+  & div :first-child {
+    margin-top: 0;
+  }
+
   color: ${color.textColor};
   letter-spacing: 0.05em;
 
