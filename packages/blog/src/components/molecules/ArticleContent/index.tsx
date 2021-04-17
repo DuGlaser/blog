@@ -1,8 +1,10 @@
+import { Code as _Code, Image } from '@blog/component';
 import { Article } from '@blog/core';
 import { parser } from '@blog/parser';
+import { useTheme } from '@emotion/react';
 import { useMemo } from 'react';
 
-import { Code, Tag } from '@/components/atoms';
+import { Tag } from '@/components/atoms';
 import { formatDate } from '@/utils/formatDate';
 
 import { Share } from '../Share';
@@ -11,6 +13,8 @@ import * as S from './style';
 export type Props = { article: Article };
 
 export const ArticleContent: React.VFC<Props> = ({ article }) => {
+  const theme = useTheme();
+
   const createdAt = useMemo(() => formatDate(new Date(article.created_at)), [
     article.created_at,
   ]);
@@ -19,7 +23,18 @@ export const ArticleContent: React.VFC<Props> = ({ article }) => {
   ]);
 
   const { element } = parser(article.body, {
-    code: Code,
+    code: function Code({ children, ...props }: any) {
+      return (
+        <_Code
+          textColor={theme.color.gray}
+          bgColor={theme.color.bgColor}
+          {...props}
+        >
+          {children}
+        </_Code>
+      );
+    },
+    img: Image,
   });
 
   return (
