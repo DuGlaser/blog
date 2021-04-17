@@ -8,6 +8,10 @@
   "module": "dist/index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "yarn clean && tsc"
+    "build": "tsc",
+    "dev": "tsc-watch"
+  },
+  "devDependencies": {
+    "tsc-watch": "^4.2.9"
   }
 }
