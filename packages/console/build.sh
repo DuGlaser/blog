@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-packages=(core util parser console)
+packages=(core util parser component console)
 
 for pakcage in ${packages[@]}; do
   echo "yarn workspace @blog/$pakcage build"
