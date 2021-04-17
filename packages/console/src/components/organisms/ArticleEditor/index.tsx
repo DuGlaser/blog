@@ -25,6 +25,7 @@ import { Editor, Preview, SelectTagBox } from '@/components/molecules';
 import { useSaveArticle } from '@/hooks';
 import firebase from '@/utils/firebase';
 import { formatMDImage } from '@/utils/formatMDImage';
+import { getImageSize } from '@/utils/getImageSize';
 
 import { ActionType, Reducer, reducer } from './reducer';
 import * as S from './style';
@@ -69,19 +70,20 @@ export const ArticleEditor: React.VFC<Props> = ({
     noClick: true,
     accept: 'image/jpeg, image/png',
     onDrop: async (files) => {
-      Promise.all(
-        files.map(async (file) => {
-          try {
-            const url = uploadImage(file);
-            return Promise.resolve<string>(url);
-          } catch (error) {
-            console.warn(error);
-            return Promise.reject(error);
-          }
-        })
-      ).then((data) => {
-        const urlStrings = data.map((url) => formatMDImage(url)).join('\n');
-        handleChangeBody(state.body + urlStrings);
+      files.map(async (file) => {
+        try {
+          const url = await uploadImage(file);
+          const { width, height } = await getImageSize(url);
+          dispatch({
+            type: ActionType.ADD_IMAGE,
+            payload: {
+              ...state,
+              body: formatMDImage({ url, width, height }),
+            },
+          });
+        } catch (error) {
+          console.warn(error);
+        }
       });
     },
   });
