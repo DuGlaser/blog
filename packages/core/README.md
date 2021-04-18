@@ -1,11 +1,19 @@
 # `@blog/core`
 
-> TODO: description
+Common components of this blog
 
 ## Usage
 
+```ts
+import {} from '@blog/core'
 ```
-const core = require('@blog/core');
 
-// TODO: DEMONSTRATE API
+## Build
+```bash
+$ yarn workspace @blog/core build
+```
+
+## Development
+```bash
+$ yarn workspace @blog/core dev
 ```
