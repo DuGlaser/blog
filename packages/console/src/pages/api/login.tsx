@@ -19,6 +19,7 @@ const sendLog = async (log: any) => {
     content: JSON.stringify(log),
   };
 
+  console.log("DISCORD_WEB_HOOK: " + process.env.DISCORD_WEB_HOOK)
   if (process.env.DISCORD_WEB_HOOK) {
     await axios.post(process.env.DISCORD_WEB_HOOK, message, config);
   }
@@ -28,6 +29,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { AuthUser } = await setAuthCookies(req, res);
 
+    console.log("FIREBASE_ADMIN_ID: " + process.env.FIREBASE_ADMIN_ID)
     if (AuthUser.id === process.env.FIREBASE_ADMIN_ID) {
       await sendLog(AuthUser);
     }
