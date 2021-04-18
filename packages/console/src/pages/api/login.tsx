@@ -28,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { AuthUser } = await setAuthCookies(req, res);
 
-    if (AuthUser.id !== process.env.FIREBASE_ADMIN_ID) {
+    if (AuthUser.id === process.env.FIREBASE_ADMIN_ID) {
       await sendLog(AuthUser);
     }
   } catch (e) {
