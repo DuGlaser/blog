@@ -1,14 +1,6 @@
 import { markdownStyleMixin } from '@blog/util';
 import styled from '@emotion/styled';
 
-const markdownStyle = styled.div`
-  ${(props) =>
-    markdownStyleMixin({
-      textColor: props.theme.color.lightGrey,
-      primaryColor: props.theme.color.primary,
-    })}
-`;
-
 export const Title = styled.h1`
   margin-bottom: 2rem;
   color: ${(props) => props.theme.color.lightGrey};
@@ -28,15 +20,17 @@ export const Time = styled.time`
   text-align: center;
 `;
 
-export const Content = styled(markdownStyle)`
+export const Content = styled.div`
   margin-top: 32px;
   padding: 1.5rem 1.5rem;
   background-color: ${(props) => props.theme.color.base};
   border-radius: 8px;
 
-  & div :first-child {
-    margin-top: 0;
-  }
+  ${(props) =>
+    markdownStyleMixin({
+      textColor: props.theme.color.lightGrey,
+      primaryColor: props.theme.color.primary,
+    })}
 `;
 
 export const TagWrapper = styled.div`

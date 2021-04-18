@@ -6,6 +6,7 @@ export enum ActionType {
   UPDATE_BODY = 'UPDATE_BODY',
   UPDATE_TITLE = 'UPDATE_TITLE',
   UPDATE_TAGS = 'UPDATE_TAGS',
+  ADD_IMAGE = 'ADD_IMAGE',
   TOGGLE_PUBLIC = 'TOGGLE_PUBLIC',
 }
 
@@ -22,6 +23,12 @@ export const reducer: Reducer = (state, action) => {
       return {
         ...state,
         body: action.payload.body,
+      };
+
+    case ActionType.ADD_IMAGE:
+      return {
+        ...state,
+        body: state.body + action.payload.body,
       };
 
     case ActionType.UPDATE_TITLE:

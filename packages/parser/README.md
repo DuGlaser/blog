@@ -1,11 +1,19 @@
 # `@blog/parser`
 
-> TODO: description
+Common components of this blog
 
 ## Usage
 
+```ts
+import {} from '@blog/parser'
 ```
-const parser = require('@blog/parser');
 
-// TODO: DEMONSTRATE API
+## Build
+```bash
+$ yarn workspace @blog/parser build
+```
+
+## Development
+```bash
+$ yarn workspace @blog/parser dev
 ```

@@ -8,11 +8,14 @@ import remarkTorehype from 'remark-rehype';
 import strip from 'strip-markdown';
 import unified from 'unified';
 
+import { imageSize } from './src/imageSize';
+
 export const parser = (mdText: string, components?: { [key: string]: any }) => {
   const element = unified()
     .use(toremark)
     .use(gfm)
     .use(breaks)
+    .use(imageSize)
     .use(remarkTorehype)
     .use(rehypeToreact, {
       createElement: React.createElement,

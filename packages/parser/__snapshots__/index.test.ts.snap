@@ -1,5 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parser ![example](example.png) 1`] = `
+<div>
+  <p>
+    <img
+      alt="example"
+      src="example.png"
+    />
+    {height=100}
+  </p>
+</div>
+`;
+
+exports[`parser ![example](example.png=100x100) 1`] = `
+<div>
+  <p>
+    <img
+      alt="example"
+      height="100"
+      src="example.png"
+      width="100"
+    />
+  </p>
+</div>
+`;
+
 exports[`parser # test 1`] = `
 <div>
   <h1>

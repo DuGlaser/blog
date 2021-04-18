@@ -63,4 +63,18 @@ describe('parser', () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('![example](example.png)', () => {
+    const { element } = parser('![example](example.png){height=100}');
+    const component = renderer.create(element);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('![example](example.png=100x100)', () => {
+    const { element } = parser('![example](example.png=100x100)');
+    const component = renderer.create(element);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
