@@ -12,7 +12,7 @@ const initAuth = () => {
         clientEmail: process.env.FIREBASE_CLIENT_EMAIL as string,
         privateKey: process.env.FIREBASE_PRIVATE_KEY as string,
       },
-      databaseURL: 'https://my-example-app.firebaseio.com',
+      databaseURL: '',
     },
     firebaseClientInitConfig: {
       apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY as string,
@@ -20,7 +20,7 @@ const initAuth = () => {
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
     },
     cookies: {
-      name: 'ExampleApp',
+      name: 'DuGlaserBlogConsole',
       keys: [
         process.env.COOKIE_SECRET_CURRENT,
         process.env.COOKIE_SECRET_PREVIOUS,
