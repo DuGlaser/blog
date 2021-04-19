@@ -18,11 +18,12 @@ const sendLog = async (log: any) => {
     username: 'blog-console bot',
     content: JSON.stringify(log),
   };
-  
+
   if (process.env.DISCORD_WEB_HOOK) {
-    await axios.post(process.env.DISCORD_WEB_HOOK, message, config);
+    const res = await axios.post(process.env.DISCORD_WEB_HOOK, message, config);
+    console.log({ res });
   } else {
-    throw new Error("Not found discord_web_hook")
+    console.log('DISCORD_WEB_HOOK is undefined');
   }
 };
 
@@ -31,18 +32,19 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const { AuthUser } = await setAuthCookies(req, res);
 
     if (process.env.FIREBASE_ADMIN_ID) {
-      throw new Error("Not found firebase_admin_id")
+      console.log('FIREBASE_ADMIN_ID is undefined');
+      return res.status(200).json({ success: true });
     }
-    if (!AuthUser.id) {
-      throw new Error("Not found AuthUser.id")
-    }
+
     if (AuthUser.id === process.env.FIREBASE_ADMIN_ID) {
       await sendLog(AuthUser);
+      return res.status(200).json({ success: true });
     }
+
+    return res.status(200).json({ success: true });
   } catch (e) {
-    return res.status(500).json({ error: e });
+    return res.status(500).json({ error: 'Unexpected error.' });
   }
-  return res.status(200).json({ success: true });
 };
 
 export default handler;
