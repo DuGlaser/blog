@@ -31,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { AuthUser } = await setAuthCookies(req, res);
 
-    if (process.env.FIREBASE_ADMIN_ID) {
+    if (!process.env.FIREBASE_ADMIN_ID) {
       console.log('FIREBASE_ADMIN_ID is undefined');
       return res.status(200).json({ success: true });
     }
