@@ -62,10 +62,7 @@ const getLaunchOptions = () => {
 };
 
 const renderOGP = (title: string) => {
-  const fontPath = path.resolve(
-    process.cwd(),
-    './assets/DelaGothicOne-Regular.ttf'
-  );
+  const fontPath = path.join(process.cwd(), 'assets/DelaGothicOne-Regular.ttf');
   const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
   const element = React.createElement(Content, { title, font });
