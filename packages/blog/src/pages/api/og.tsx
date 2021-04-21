@@ -1,8 +1,6 @@
-// Ref: https://github.com/tdkn/blog/blob/main/pages/api/og/%5B...path%5D.ts
-
-import fs from 'fs';
+// import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
-import path from 'path';
+// import path from 'path';
 import * as playwright from 'playwright-aws-lambda';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -10,11 +8,12 @@ import ReactDOM from 'react-dom/server';
 import { theme } from '@/utils/theme';
 
 const styles = (font: string) => `
-  @font-face {
-    font-weight: bold;
-    font-family: 'Dela Gothic One';
-    src: url(data:font/ttf;charset=utf-8;base64,${font}) format('truetype');
-  }
+  // @font-face {
+  //   font-weight: bold;
+  //   font-family: 'Dela Gothic One';
+  //   src: url(data:font/ttf;charset=utf-8;base64,${font}) format('truetype');
+  // }
+
   html,
   body {
     display: flex;
@@ -38,6 +37,11 @@ const Content: React.VFC<{ title: string; font: string }> = (props) => {
   return (
     <html lang="ja">
       <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
+          rel="stylesheet"
+        />
         <style dangerouslySetInnerHTML={{ __html: styles(props.font) }} />
       </head>
       <body>
@@ -61,25 +65,28 @@ const getLaunchOptions = () => {
   }
 };
 
-const renderOGP = (title: string) => {
-  const fontPath = path.join(__dirname, 'assets', 'DelaGothicOne-Regular.ttf');
-  const font = fs.readFileSync(fontPath, { encoding: 'base64' });
+// const getFontFile = (): string => {
+//   const fontPath = path.join(__dirname, 'assets', 'DelaGothicOne-Regular.ttf');
+//   const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
-  const element = React.createElement(Content, { title, font });
+//   return font;
+// };
+
+const renderOGImage = (title: string) => {
+  const element = React.createElement(Content, { title, font: '' });
   const markup = ReactDOM.renderToStaticMarkup(element);
   return `<!doctype html>${markup}`;
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log(process.env.NODE_ENV);
   if (req.query.title && typeof req.query.title === 'string') {
     const viewport = { width: 1200, height: 630 };
 
     const browser = await playwright.launchChromium(getLaunchOptions());
     const page = await browser.newPage({ viewport });
 
-    const html = renderOGP(req.query.title);
-    await page.setContent(html, { waitUntil: 'domcontentloaded' });
+    const html = renderOGImage(req.query.title);
+    await page.setContent(html, { waitUntil: 'networkidle' });
 
     const image = await page.screenshot({ type: 'png' });
     await browser.close();
@@ -87,5 +94,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.setHeader('Cache-Control', 's-maxage=31536000, stale-while-revalidate');
     res.setHeader('Content-Type', 'image/png');
     res.end(image);
+  } else {
+    res.status(400);
+    res.end();
   }
 };
