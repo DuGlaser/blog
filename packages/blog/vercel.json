@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "pages/api/og.tsx": {
-      "includeFiles": "assets/DelaGothicOne-Regular.ttf"
-    }
-  }
-}
