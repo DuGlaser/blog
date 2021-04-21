@@ -2,7 +2,6 @@
 
 import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
-import path from 'path';
 import * as playwright from 'playwright-aws-lambda';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -62,7 +61,7 @@ const getLaunchOptions = () => {
 };
 
 const renderOGP = (title: string) => {
-  const fontPath = path.join(process.cwd(), 'assets/DelaGothicOne-Regular.ttf');
+  const fontPath = './fonts/DelaGothicOne-Regular.ttf';
   const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
   const element = React.createElement(Content, { title, font });
