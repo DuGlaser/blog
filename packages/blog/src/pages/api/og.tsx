@@ -1,3 +1,5 @@
+// Ref: https://github.com/tdkn/blog/blob/main/pages/api/og/%5B...path%5D.ts
+
 import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
@@ -5,7 +7,7 @@ import * as playwright from 'playwright-aws-lambda';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
-import { theme } from '../src/utils/theme';
+import { theme } from '@/utils/theme';
 
 const styles = (font: string) => `
   @font-face {
@@ -69,6 +71,7 @@ const renderOGP = (title: string) => {
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(process.env.NODE_ENV);
   if (req.query.title && typeof req.query.title === 'string') {
     const viewport = { width: 1200, height: 630 };
 
