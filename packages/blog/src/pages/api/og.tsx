@@ -1,6 +1,7 @@
 // Ref: https://github.com/tdkn/blog/blob/main/pages/api/og/%5B...path%5D.ts
 
 import fs from 'fs';
+import path from 'path';
 import { NextApiRequest, NextApiResponse } from 'next';
 import * as playwright from 'playwright-aws-lambda';
 import React from 'react';
@@ -61,7 +62,7 @@ const getLaunchOptions = () => {
 };
 
 const renderOGP = (title: string) => {
-  const fontPath = './fonts/DelaGothicOne-Regular.ttf';
+  const fontPath = path.join(__dirname, 'assets', 'DelaGothicOne-Regular.ttf');
   const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
   const element = React.createElement(Content, { title, font });
