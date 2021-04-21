@@ -1,8 +1,8 @@
 // Ref: https://github.com/tdkn/blog/blob/main/pages/api/og/%5B...path%5D.ts
 
 import fs from 'fs';
-import path from 'path';
 import { NextApiRequest, NextApiResponse } from 'next';
+import path from 'path';
 import * as playwright from 'playwright-aws-lambda';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
