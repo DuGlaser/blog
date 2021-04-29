@@ -2,8 +2,8 @@ import { Article } from '@blog/core';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
-import path from 'path';
 import { config } from 'site.config';
+import urljoin from 'url-join';
 
 import { ArticleContent } from '@/components/molecules';
 import { Layout } from '@/components/templates';
@@ -44,7 +44,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const ArticlePage: NextPage<Props> = ({ article }) => {
   const router = useRouter();
-  const url = path.posix.join(config.site.url, router ? router.asPath : '');
+  const url = urljoin(config.site.url, router ? router.asPath : '');
 
   return (
     <Layout>
@@ -60,10 +60,7 @@ const ArticlePage: NextPage<Props> = ({ article }) => {
           site_name: config.site.title,
           images: [
             {
-              url: path.posix.join(
-                config.site.url,
-                `/api/og?title=${article.title}`
-              ),
+              url: urljoin(config.site.url, `/api/og?title=${article.title}`),
             },
           ],
         }}

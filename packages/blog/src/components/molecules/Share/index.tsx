@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import path from 'path';
 import {
   HatenaIcon,
   HatenaShareButton,
@@ -7,6 +6,7 @@ import {
   TwitterShareButton,
 } from 'react-share';
 import { config } from 'site.config';
+import urljoin from 'url-join';
 
 import * as S from './style';
 
@@ -14,7 +14,7 @@ export const Share: React.VFC<{ title: string }> = ({ title }) => {
   const router = useRouter();
 
   // NOTE: When you use Storybook, router is null
-  const url = path.posix.join(config.site.url, router ? router.asPath : '');
+  const url = urljoin(config.site.url, router ? router.asPath : '');
 
   return (
     <S.Wrapper>
