@@ -26,14 +26,15 @@
     "firebase": "^8.3.0",
     "github-markdown-css": "^4.0.0",
     "modern-css-reset": "^1.4.0",
-    "next": "latest",
+    "next": "10.1.0",
     "next-seo": "^4.23.0",
     "playwright-aws-lambda": "^0.6.0",
     "playwright-core": "^1.11.0-next-alpha-apr-20-2021",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-share": "^4.4.0",
-    "react-syntax-highlighter": "^15.4.3"
+    "react-syntax-highlighter": "^15.4.3",
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -47,6 +48,7 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-syntax-highlighter": "^13.5.0",
+    "@types/url-join": "^4.0.0",
     "babel-loader": "^8.2.2",
     "csstype": "^3.0.7",
     "dotenv": "^8.2.0",

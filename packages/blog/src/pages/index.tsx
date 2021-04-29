@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
-import path from 'path';
 import { config } from 'site.config';
+import urljoin from 'url-join';
 
 import { ArticleCard } from '@/components/molecules';
 import { Layout } from '@/components/templates/Layout';
@@ -36,7 +36,7 @@ const IndexPage: NextPage = () => {
           site_name: config.site.title,
           images: [
             {
-              url: path.posix.join(config.site.url, `/api/og?title=永遠にWIP`),
+              url: urljoin(config.site.url, `/api/og?title=永遠にWIP`),
             },
           ],
         }}
