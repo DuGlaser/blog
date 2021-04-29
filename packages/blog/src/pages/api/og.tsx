@@ -1,6 +1,6 @@
-// import fs from 'fs';
+import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
-// import path from 'path';
+import path from 'path';
 import * as playwright from 'playwright-aws-lambda';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -8,11 +8,11 @@ import ReactDOM from 'react-dom/server';
 import { theme } from '@/utils/theme';
 
 const styles = (font: string) => `
-  // @font-face {
-  //   font-weight: bold;
-  //   font-family: 'Dela Gothic One';
-  //   src: url(data:font/ttf;charset=utf-8;base64,${font}) format('truetype');
-  // }
+  @font-face {
+    font-weight: bold;
+    font-family: 'Dela Gothic One';
+    src: url(data:font/ttf;charset=utf-8;base64,${font}) format('truetype');
+  }
 
   html,
   body {
@@ -37,11 +37,6 @@ const Content: React.VFC<{ title: string; font: string }> = (props) => {
   return (
     <html lang="ja">
       <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
-          rel="stylesheet"
-        />
         <style dangerouslySetInnerHTML={{ __html: styles(props.font) }} />
       </head>
       <body>
@@ -65,15 +60,16 @@ const getLaunchOptions = () => {
   }
 };
 
-// const getFontFile = (): string => {
-//   const fontPath = path.join(__dirname, 'assets', 'DelaGothicOne-Regular.ttf');
-//   const font = fs.readFileSync(fontPath, { encoding: 'base64' });
+const getFontFile = (): string => {
+  const fontPath = path.resolve('./public/', 'fonts/DelaGothicOne-Regular.ttf');
+  const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
-//   return font;
-// };
+  return font;
+};
 
 const renderOGImage = (title: string) => {
-  const element = React.createElement(Content, { title, font: '' });
+  const font = getFontFile();
+  const element = React.createElement(Content, { title, font });
   const markup = ReactDOM.renderToStaticMarkup(element);
   return `<!doctype html>${markup}`;
 };
@@ -86,7 +82,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const page = await browser.newPage({ viewport });
 
     const html = renderOGImage(req.query.title);
-    await page.setContent(html, { waitUntil: 'networkidle' });
+    await page.setContent(html, { waitUntil: 'domcontentloaded' });
 
     const image = await page.screenshot({ type: 'png' });
     await browser.close();
