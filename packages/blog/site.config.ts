@@ -4,7 +4,7 @@ export const config = {
     description: '技術ブログ系サグラダ・ファミリア',
     url:
       process.env.NODE_ENV === 'production'
-        ? 'https://blog-virid-five.vercel.app'
+        ? 'https://duglaser.dev'
         : 'http://localhost:3000',
   },
   twitter: {
