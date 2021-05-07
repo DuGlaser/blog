@@ -19,9 +19,15 @@ export const CreatedAt = styled.time`
 `;
 
 export const Title = styled.h2`
-  margin-bottom: 18px;
+  margin-bottom: 0.5rem;
   color: ${(props) => props.theme.color.white};
   font-size: 1.5em;
+`;
+
+export const Description = styled.div`
+  margin-bottom: 18px;
+  color: ${(props) => props.theme.color.gray};
+  font-size: 0.8em;
 `;
 
 export const TagWrapper = styled.div`

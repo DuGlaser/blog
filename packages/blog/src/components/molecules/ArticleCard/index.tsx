@@ -18,6 +18,7 @@ export const ArticleCard: React.VFC<Props> = ({ article }) => {
     <S.Wrapper>
       <S.CreatedAt dateTime={formattedDate}>{formattedDate}</S.CreatedAt>
       <S.Title>{article.title}</S.Title>
+      <S.Description>{article.description}</S.Description>
       <S.TagWrapper>
         {article.tags.map((tag) => (
           <Tag key={`article-${tag}`}>{tag}</Tag>
