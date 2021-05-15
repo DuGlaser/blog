@@ -64,11 +64,6 @@ const ArticlePage: NextPage<Props> = ({ article }) => {
             },
           ],
         }}
-        twitter={{
-          handle: `@${config.twitter.id}`,
-          site: `@${config.twitter.id}`,
-          cardType: 'summary_large_image',
-        }}
       />
       <ArticleContent article={article} />
     </Layout>
