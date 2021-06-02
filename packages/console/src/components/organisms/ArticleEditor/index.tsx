@@ -68,7 +68,7 @@ export const ArticleEditor: React.VFC<Props> = ({
 
   const { getRootProps } = useDropzone({
     noClick: true,
-    accept: 'image/jpeg, image/png',
+    accept: '.jpeg, .png, .gif',
     onDrop: async (files) => {
       files.map(async (file) => {
         try {
