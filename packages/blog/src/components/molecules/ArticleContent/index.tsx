@@ -15,12 +15,14 @@ export type Props = { article: Article };
 export const ArticleContent: React.VFC<Props> = ({ article }) => {
   const theme = useTheme();
 
-  const createdAt = useMemo(() => formatDate(new Date(article.created_at)), [
-    article.created_at,
-  ]);
-  const updatedAt = useMemo(() => formatDate(new Date(article.created_at)), [
-    article.created_at,
-  ]);
+  const createdAt = useMemo(
+    () => formatDate(new Date(article.created_at)),
+    [article.created_at]
+  );
+  const updatedAt = useMemo(
+    () => formatDate(new Date(article.created_at)),
+    [article.created_at]
+  );
 
   const { element } = parser(article.body, {
     code: function Code({ children, ...props }: any) {
