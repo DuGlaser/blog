@@ -3,6 +3,8 @@ import * as dotenv from 'dotenv';
 import firebase from 'firebase';
 import fs from 'fs-extra';
 
+import { formatDate } from '@/utils/formatDate';
+
 dotenv.config();
 
 firebase.initializeApp({
@@ -23,7 +25,17 @@ const main = async () => {
     .map((doc) => {
       return { ...doc.data(), id: doc.id } as Article;
     })
-    .sort((a, b) => b.created_at - a.created_at) as Article[];
+    .map((article) => {
+      const createdAt = new Date(article.created_at);
+      const updatedAt = new Date(article.updated_at);
+
+      return {
+        ...article,
+        created_at: formatDate(createdAt),
+        updated_at: formatDate(updatedAt),
+      };
+    })
+    .sort((a, b) => b.created_at.localeCompare(a.created_at)) as Article[];
 
   db.terminate();
   db.clearPersistence();

@@ -5,8 +5,8 @@ export type Article = {
   description: string;
   body: string;
   tags: string[];
-  updated_at: number;
-  created_at: number;
+  updated_at: number | string;
+  created_at: number | string;
 };
 
 export type FirestoreArticle = Omit<Article, 'id'>;
