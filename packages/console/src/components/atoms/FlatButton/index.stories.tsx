@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { Meta, Story } from '@storybook/react/types-6-0';
 
 import { FlatButton, Props } from './index';
@@ -8,7 +7,7 @@ export default {
   component: FlatButton,
 } as Meta;
 
-const Template: Story<Props> = ({ children, ref, ...args }) => (
+const Template: Story<Omit<Props, 'ref'>> = ({ children, ...args }) => (
   <FlatButton {...args}>{children}</FlatButton>
 );
 

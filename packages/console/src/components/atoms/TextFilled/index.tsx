@@ -28,7 +28,7 @@ const StyledInput = styled.input<StyledProps>(
 );
 
 export const TextFilled = React.forwardRef<HTMLInputElement, Props>(
-  function _FlatButton({ children, ...props }, ref) {
+  function _FlatButton({ ...props }, ref) {
     return <StyledInput {...props} ref={ref} />;
   }
 );

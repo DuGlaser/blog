@@ -15,7 +15,7 @@ type StyleProps = {
 export type Props = TextareaProps & StyleProps;
 
 export const Editor = React.forwardRef<HTMLTextAreaElement, Props>(
-  function _Editor({ children, onChange, ...props }, ref) {
+  function _Editor({ onChange, ...props }, ref) {
     return (
       <S.Textarea
         ref={ref}

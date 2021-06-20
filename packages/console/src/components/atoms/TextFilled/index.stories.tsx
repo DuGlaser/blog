@@ -7,7 +7,9 @@ export default {
   component: TextFilled,
 } as Meta;
 
-const Template: Story<Props> = ({ ref, ...args }) => <TextFilled {...args} />;
+const Template: Story<Omit<Props, 'ref'>> = ({ ...args }) => (
+  <TextFilled {...args} />
+);
 
 export const Simple = Template.bind({});
 
