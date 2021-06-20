@@ -57,7 +57,7 @@ const IndexPage: NextPage = () => {
           </FlatButton>
         </S.Header>
         {value
-          ?.sort((a, b) => b.updated_at - a.updated_at)
+          ?.sort((a, b) => (b.updated_at as number) - (a.updated_at as number))
           .map((article) => (
             <S.ArticleCardWrapper key={article.id}>
               <ArticleCard article={article} />
