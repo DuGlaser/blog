@@ -194,12 +194,13 @@ export const ArticleEditor: React.VFC<Props> = ({
           value={state.tags}
           handleChangeValue={useCallback(
             (value) => {
+              const sortedTags = value.sort((a, b) => a.localeCompare(b));
               dispatch({
                 type: ActionType.UPDATE_TAGS,
-                payload: { ...state, tags: value },
+                payload: { ...state, tags: sortedTags },
               });
               handleSave({
-                tags: value,
+                tags: sortedTags,
               });
             },
             [state, dispatch, handleSave]
