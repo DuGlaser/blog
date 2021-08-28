@@ -61,7 +61,11 @@ const getLaunchOptions = () => {
 };
 
 const getFontFile = (): string => {
-  const fontPath = path.resolve('./public/', 'fonts/DelaGothicOne-Regular.ttf');
+  let basePath = process.cwd();
+  if (process.env.NODE_ENV === 'production') {
+    basePath = path.join(process.cwd(), '.next/server/chunks');
+  }
+  const fontPath = path.join(basePath, 'fonts/DelaGothicOne-Regular.ttf');
   const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
   return font;
