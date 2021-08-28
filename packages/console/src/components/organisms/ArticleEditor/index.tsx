@@ -5,13 +5,7 @@ import { parser } from '@blog/parser';
 import { useTheme } from '@emotion/react';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, {
-  useCallback,
-  useMemo,
-  useReducer,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useReducer, useRef, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useStopTyping } from 'use-stop-typing';
 
@@ -91,10 +85,10 @@ export const ArticleEditor: React.VFC<Props> = ({
   const [isUpdate, setIsUpdate] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const formattedDescription = useMemo(() => {
-    const { plainText } = parser(article.body);
+  const createDescription = useCallback((body: string) => {
+    const { plainText } = parser(body);
     return plainText.replace(/[\n|\r|\n\r]+/g, ' ').slice(0, 116) + '...';
-  }, [article.body]);
+  }, []);
 
   const handleSave = useSaveArticle(article.id);
   const editorRef = useRef<HTMLTextAreaElement>(null);
@@ -108,7 +102,7 @@ export const ArticleEditor: React.VFC<Props> = ({
           public: state.public,
           title: state.title,
           body: state.body,
-          description: formattedDescription,
+          description: createDescription(state.body),
         });
         setIsUpdate(true);
         setTimeout(() => setIsUpdate(false), 2500);
