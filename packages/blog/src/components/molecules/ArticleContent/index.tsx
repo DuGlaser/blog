@@ -43,7 +43,7 @@ export const ArticleContent: React.VFC<Props> = ({ article }) => {
         )}
       </S.MetaWrapper>
       <S.TagWrapper>
-        {article.tags.map((tag) => (
+        {article.tags?.map((tag) => (
           <Tag key={`article-${tag}`}>{tag}</Tag>
         ))}
       </S.TagWrapper>
