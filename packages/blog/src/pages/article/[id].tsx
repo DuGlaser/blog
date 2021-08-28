@@ -7,8 +7,7 @@ import urljoin from 'url-join';
 
 import { ArticleContent } from '@/components/molecules';
 import { Layout } from '@/components/templates';
-
-import articles from '.contents/articles.json';
+import { getArticleById } from '@/lib/article';
 
 type Props = {
   article: Article;
@@ -16,29 +15,26 @@ type Props = {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const id = params?.id as string;
-  const article = articles.find((article) => article.id === id);
+  const article = await getArticleById(id);
 
-  if (!article) throw 'Not found article';
+  if (!article) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
       article,
     },
+    revalidate: 60 * 10,
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const articleIdList = articles.map((article) => article.id);
-  const paths = articleIdList.map((id) => {
-    return {
-      params: {
-        id,
-      },
-    };
-  });
+export const getStaticPaths: GetStaticPaths = () => {
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: 'blocking',
   };
 };
 

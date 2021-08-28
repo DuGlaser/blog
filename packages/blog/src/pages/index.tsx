@@ -1,11 +1,11 @@
+import { Article } from '@blog/core';
 import styled from '@emotion/styled';
-import { NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 
 import { ArticleCard } from '@/components/molecules';
 import { Layout } from '@/components/templates/Layout';
-
-import articles from '.contents/articles.json';
+import { getAllArticles } from '@/lib/article';
 
 const S = {
   ArticleWrapper: styled.div`
@@ -18,7 +18,28 @@ const S = {
   `,
 };
 
-const IndexPage: NextPage = () => {
+type Props = {
+  articles: Article[];
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  try {
+    const articles = await getAllArticles();
+
+    return {
+      props: {
+        articles,
+      },
+      revalidate: 60 * 10,
+    };
+  } catch (err) {
+    return {
+      notFound: true,
+    };
+  }
+};
+
+const IndexPage: NextPage<Props> = ({ articles }) => {
   return (
     <Layout>
       {articles.map((article) => (
