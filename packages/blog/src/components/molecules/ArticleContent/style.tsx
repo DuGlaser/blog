@@ -6,6 +6,7 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.color.lightGrey};
   font-size: 2rem;
   text-align: center;
+  overflow-wrap: break-word;
 `;
 
 export const MetaWrapper = styled.div`
@@ -25,6 +26,7 @@ export const Content = styled.div`
   padding: 1.5rem 1.5rem;
   background-color: ${(props) => props.theme.color.base};
   border-radius: 8px;
+  overflow-wrap: break-word;
 
   ${(props) =>
     markdownStyleMixin({
