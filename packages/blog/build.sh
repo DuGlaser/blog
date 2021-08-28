@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 packages=(core util parser component blog)
 
