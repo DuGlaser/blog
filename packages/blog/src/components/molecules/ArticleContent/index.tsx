@@ -16,11 +16,7 @@ export const ArticleContent: React.VFC<Props> = ({ article }) => {
   const { element } = parser(article.body, {
     code: function Code({ children, ...props }: any) {
       return (
-        <_Code
-          textColor={theme.color.gray}
-          bgColor={theme.color.bgColor}
-          {...props}
-        >
+        <_Code textColor={'#ff6d6d'} bgColor={theme.color.bgColor} {...props}>
           {children}
         </_Code>
       );
