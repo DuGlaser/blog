@@ -1,4 +1,3 @@
-const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -6,6 +5,15 @@ module.exports = {
     optimizeFonts: true,
   },
   target: 'serverless',
+  async redirects() {
+    return [
+      {
+        source: '/article/:path',
+        destination: '/articles/:path',
+        permanent: true,
+      },
+    ];
+  },
   webpack: function (config, { dev, isServer }) {
     if (!isServer) {
       config.resolve.fallback.fs = false;

@@ -44,7 +44,7 @@ const IndexPage: NextPage<Props> = ({ articles }) => {
     <Layout>
       {articles.map((article) => (
         <S.ArticleWrapper key={`article-card-${article.id}`}>
-          <Link href={`/article/${article.id}`}>
+          <Link href={`/articles/${article.id}`}>
             <S.ArticleAnchor>
               <ArticleCard article={article} />
             </S.ArticleAnchor>
