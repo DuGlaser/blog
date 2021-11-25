@@ -24,10 +24,10 @@
     "firebase": "^8.3.0",
     "github-markdown-css": "^4.0.0",
     "modern-css-reset": "^1.4.0",
-    "next": "^11.1.0",
+    "next": "^12.0.4",
     "next-seo": "^4.23.0",
-    "playwright-aws-lambda": "^0.6.0",
-    "playwright-core": "^1.11.0-next-alpha-apr-20-2021",
+    "playwright-aws-lambda": "^0.7.0",
+    "playwright-core": "^1.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-share": "^4.4.0",
@@ -58,15 +58,5 @@
     "tsconfig-paths-webpack-plugin": "^3.4.1",
     "typescript": "^4.3.2",
     "webpack-merge": "^5.7.3"
-  },
-  "optionalDependencies": {
-    "playwright": "^1.10.0"
-  },
-  "workspaces": {
-    "nohoist": [
-      "playwright",
-      "playwright-core",
-      "playwright-aws-lambda"
-    ]
   }
 }

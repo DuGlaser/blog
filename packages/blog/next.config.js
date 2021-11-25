@@ -4,7 +4,6 @@ module.exports = {
   experimental: {
     optimizeFonts: true,
   },
-  target: 'serverless',
   async redirects() {
     return [
       {
@@ -14,7 +13,7 @@ module.exports = {
       },
     ];
   },
-  webpack: function (config, { dev, isServer }) {
+  webpack: function(config, { dev, isServer }) {
     if (!isServer) {
       config.resolve.fallback.fs = false;
     }
