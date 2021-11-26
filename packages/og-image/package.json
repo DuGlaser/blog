@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "babel index.jsx -d build",
+    "prebuild": "babel index.jsx -d build",
     "start": "node build/index.js"
   },
   "dependencies": {
