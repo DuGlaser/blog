@@ -24,10 +24,8 @@
     "firebase": "^8.3.0",
     "github-markdown-css": "^4.0.0",
     "modern-css-reset": "^1.4.0",
-    "next": "^11.1.0",
+    "next": "^12.0.4",
     "next-seo": "^4.23.0",
-    "playwright-aws-lambda": "^0.6.0",
-    "playwright-core": "^1.11.0-next-alpha-apr-20-2021",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-share": "^4.4.0",
@@ -48,7 +46,6 @@
     "@types/react-syntax-highlighter": "^13.5.0",
     "@types/url-join": "^4.0.0",
     "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^9.0.1",
     "csstype": "^3.0.7",
     "dotenv": "^8.2.0",
     "eslint-config-next": "^11.0.0",
@@ -56,17 +53,6 @@
     "npm-run-all": "^4.1.5",
     "ts-node": "^9.1.1",
     "tsconfig-paths-webpack-plugin": "^3.4.1",
-    "typescript": "^4.3.2",
-    "webpack-merge": "^5.7.3"
-  },
-  "optionalDependencies": {
-    "playwright": "^1.10.0"
-  },
-  "workspaces": {
-    "nohoist": [
-      "playwright",
-      "playwright-core",
-      "playwright-aws-lambda"
-    ]
+    "typescript": "^4.3.2"
   }
 }
