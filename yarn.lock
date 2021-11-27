@@ -10001,7 +10001,7 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1:
+hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -12981,12 +12981,13 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-next-firebase-auth@^0.13.0-alpha.0:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/next-firebase-auth/-/next-firebase-auth-0.13.1.tgz#f2d5a2f5f59a4361ac08e1ae3226fac5b789a238"
-  integrity sha512-77JFtsB63OYzfOVRV7Re/JLPSqPrGLY33CCRrp9dgcWB6RevYy671EpP50EOxLIeqmangERLnsgzgzhcvNExpA==
+next-firebase-auth@0.13.4:
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/next-firebase-auth/-/next-firebase-auth-0.13.4.tgz#66a5cde03088f69384c78d0ad0558c19c4005912"
+  integrity sha512-E0dPpIaagoUjIcaei/puQb082d3Ut+K5wIuk14qPnJP2N2GkhufxhB0INP7rGvYSy1FqQdfywnUwn37m62+ZfA==
   dependencies:
     cookies "^0.8.0"
+    hoist-non-react-statics "^3.3.2"
 
 next-seo@^4.23.0:
   version "4.24.0"
