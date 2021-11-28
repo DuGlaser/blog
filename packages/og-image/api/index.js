@@ -1,8 +1,8 @@
 'use strict';
 
-var _express = require('express');
-
-var _express2 = _interopRequireDefault(_express);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _fs = require('fs');
 
@@ -28,8 +28,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = (0, _express2.default)();
-app.disable('x-powered-by');
+var fontPath = _path2.default.join(_path2.default.resolve('/var/task/packages/og-image/', 'assets'), 'DelaGothicOne-Regular.ttf');
+var font = _fs2.default.readFileSync(fontPath, { encoding: 'base64' });
 
 var styles = function styles(font) {
   return '\n  @font-face {\n    font-weight: bold;\n    font-family: \'Dela Gothic One\';\n    src: url(data:font/ttf;charset=utf-8;base64,' + font + ') format(\'truetype\');\n  }\n\n  html,\n  body {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100%;\n    padding: 0 10%;\n    font-family: \'Dela Gothic One\', cursive;\n    background-color: #16161a;\n  }\n\n  h1 {\n    margin: 0 auto;\n    color: #fffffe;\n    font-size: 3.5rem;\n    letter-spacing: 0.1rem;\n  }\n';
@@ -70,22 +70,13 @@ var getLaunchOptions = function getLaunchOptions() {
   }
 };
 
-var getFontFile = function getFontFile() {
-  var basePath = _path2.default.join(process.cwd(), 'public');
-  var fontPath = _path2.default.join(basePath, 'DelaGothicOne-Regular.ttf');
-  var font = _fs2.default.readFileSync(fontPath, { encoding: 'base64' });
-
-  return font;
-};
-
 var renderOGImage = function renderOGImage(title) {
-  var font = getFontFile();
   var element = _react2.default.createElement(Content, { title: title, font: font });
   var markup = _server2.default.renderToStaticMarkup(element);
   return '<!doctype html>' + markup;
 };
 
-app.get('/', async function (req, res) {
+exports.default = async function (req, res) {
   var title = req.query.title;
   if (!title) {
     res.status(400).send('title is invalid');
@@ -106,8 +97,4 @@ app.get('/', async function (req, res) {
   res.setHeader('Cache-Control', 's-maxage=31536000, stale-while-revalidate');
   res.setHeader('Content-Type', 'image/png');
   res.end(image);
-});
-
-app.listen('8080', function () {
-  console.log('http://localhost:8080');
-});
+};

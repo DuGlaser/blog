@@ -1,12 +1,14 @@
-import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import * as playwright from 'playwright-aws-lambda';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
-const app = express();
-app.disable('x-powered-by');
+const fontPath = path.join(
+  path.resolve('/var/task/packages/og-image/', 'assets'),
+  'DelaGothicOne-Regular.ttf'
+);
+const font = fs.readFileSync(fontPath, { encoding: 'base64' });
 
 const styles = (font) => `
   @font-face {
@@ -61,22 +63,13 @@ const getLaunchOptions = () => {
   }
 };
 
-const getFontFile = () => {
-  const basePath = path.join(process.cwd(), 'public');
-  const fontPath = path.join(basePath, 'DelaGothicOne-Regular.ttf');
-  const font = fs.readFileSync(fontPath, { encoding: 'base64' });
-
-  return font;
-};
-
 const renderOGImage = (title) => {
-  const font = getFontFile();
   const element = React.createElement(Content, { title, font });
   const markup = ReactDOM.renderToStaticMarkup(element);
   return `<!doctype html>${markup}`;
 };
 
-app.get('/', async (req, res) => {
+export default async (req, res) => {
   const title = req.query.title;
   if (!title) {
     res.status(400).send('title is invalid');
@@ -97,8 +90,4 @@ app.get('/', async (req, res) => {
   res.setHeader('Cache-Control', 's-maxage=31536000, stale-while-revalidate');
   res.setHeader('Content-Type', 'image/png');
   res.end(image);
-});
-
-app.listen('8080', () => {
-  console.log('http://localhost:8080');
-});
+};
