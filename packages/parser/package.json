@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "react": "^17.0.1",
-    "rehype-react": "^6.2.0",
+    "rehype-react": "^7.0.0",
     "remark": "^13.0.0",
     "remark-breaks": "^2.0.1",
     "remark-gfm": "^1.0.0",
