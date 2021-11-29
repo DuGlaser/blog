@@ -29,7 +29,7 @@
     "axios": "^0.21.1",
     "firebase": "8.10.0",
     "firebase-admin": "9.12.0",
-    "github-markdown-css": "4.0.0",
+    "github-markdown-css": "5.0.0",
     "modern-css-reset": "1.4.0",
     "next": "latest",
     "next-firebase-auth": "0.13.1",
