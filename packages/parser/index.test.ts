@@ -77,4 +77,9 @@ describe('parser', () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('plainText', () => {
+    const { plainText } = parser('# Title \n Hello \n > World');
+    expect(plainText.replace(/\n/g, '')).toBe('TitleHelloWorld');
+  });
 });
