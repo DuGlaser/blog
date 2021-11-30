@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "module": "dist/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "clean": "rm -rf ./dist",
     "build": "tsc",
     "lint": "eslint --ext .ts"
@@ -15,25 +15,28 @@
   "dependencies": {
     "react": "^17.0.1",
     "rehype-react": "^6.2.0",
-    "remark": "^13.0.0",
+    "remark": "^14.0.2",
     "remark-breaks": "^2.0.1",
     "remark-gfm": "^1.0.0",
     "remark-parse": "^10.0.1",
     "remark-react": "^8.0.0",
     "remark-rehype": "^8.0.0",
     "strip-markdown": "^4.0.0",
-    "unified": "^9.2.0",
+    "unified": "^10.1.1",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^27.0.3",
     "@types/react": "^17.0.2",
     "@types/react-test-renderer": "^17.0.1",
-    "jest": "^26.6.3",
+    "jest": "^27.4.2",
     "react-test-renderer": "^17.0.1",
-    "ts-jest": "^26.5.1"
+    "ts-jest": "^27.0.7"
   },
   "jest": {
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
     "moduleFileExtensions": [
       "ts",
       "js"
@@ -43,7 +46,8 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.json"
+        "tsconfig": "tsconfig.json",
+        "useESM": true
       }
     },
     "testMatch": [
