@@ -9,6 +9,7 @@ const fontPath = path.join(
   'DelaGothicOne-Regular.ttf'
 );
 const font = fs.readFileSync(fontPath, { encoding: 'base64' });
+const browser = await playwright.launchChromium(getLaunchOptions());
 
 const styles = (font) => `
   @font-face {
@@ -78,7 +79,6 @@ export default async (req, res) => {
 
   const viewport = { width: 1200, height: 630 };
 
-  const browser = await playwright.launchChromium(getLaunchOptions());
   const page = await browser.newPage({ viewport });
 
   const html = renderOGImage(req.query.title);
