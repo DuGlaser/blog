@@ -56,10 +56,7 @@ const ArticlePage: NextPage<Props> = ({ article }) => {
           site_name: config.site.title,
           images: [
             {
-              url: urljoin(
-                'https://blog-og-image-duglaser.vercel.app',
-                `/?title=${article.title}`
-              ),
+              url: urljoin(config.ogImageURL, `/?title=${article.title}`),
             },
           ],
         }}

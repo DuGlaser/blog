@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: any) {
           site_name: config.site.title,
           images: [
             {
-              url: urljoin(config.site.url, `/api/og?title=永遠にWIP`),
+              url: urljoin(config.ogImageURL, `/api/og?title=永遠にWIP`),
             },
           ],
         }}

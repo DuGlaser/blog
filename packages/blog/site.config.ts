@@ -10,4 +10,5 @@ export const config = {
   twitter: {
     id: 'dameganeo',
   },
+  ogImageURL: 'https://blog-og-image-duglaser.vercel.app',
 };
