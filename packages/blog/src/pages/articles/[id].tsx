@@ -47,7 +47,6 @@ const ArticlePage: NextPage<Props> = ({ article }) => {
       <NextSeo
         title={article.title}
         description={article.description}
-        canonical={url}
         openGraph={{
           title: article.title,
           description: article.description,
