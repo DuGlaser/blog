@@ -10080,10 +10080,10 @@ firebase@^8.3.0:
     "@firebase/storage" "0.5.4"
     "@firebase/util" "1.1.0"
 
-firebaseui@^4.7.1:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-4.8.0.tgz#74c10a30db17f2cbfe020c91b97d5e3c6e8efbbc"
-  integrity sha512-DG8CD+969JHMailhOm8nKo+eJlumIHex0TH18eJeTo0Q2KEt5m/b61S1ky4bavK/nGmLJBRECJytq09/pwhZ0A==
+firebaseui@^4.8.0:
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-4.8.1.tgz#29ccbc9dfd579c4453725f88e9cf81c8ea62c580"
+  integrity sha512-Qh8kfqGjMIiVJ2X8MUFsmlf43QFcVc8ungD+kw5T8ACuhQ68IAyUHExlItAfumrcLlqEgyo1MjH0O9fZZAMOKw==
   dependencies:
     dialog-polyfill "^0.4.7"
     material-design-lite "^1.2.0"
@@ -16355,12 +16355,12 @@ react-firebase-hooks@^3.0.3:
   resolved "https://registry.yarnpkg.com/react-firebase-hooks/-/react-firebase-hooks-3.0.4.tgz#2185357d2bd6f7292552bc65f2459bbf9364e673"
   integrity sha512-eqhj8O5t/9nzGS/DfCGQX9goqbxTP2T/qrY2B13s4rx/VIJ4Bx3WnZgqxEVA0Y/mWZBh7gOlXSPdRGbxBq5d8g==
 
-react-firebaseui@^4.1.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/react-firebaseui/-/react-firebaseui-4.2.0.tgz#13846381daefe31b90af98854f3e79e82d4f81ba"
-  integrity sha512-KRWfQn7iJMMAcB1zmMrpo5PJ7CBrLW6NXvdEJ/N+SFZUs7ANvC3g8LzgYwsBHUr1OR1MQtGosV7dyQSmYtKyOA==
+react-firebaseui@^5.0.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/react-firebaseui/-/react-firebaseui-5.0.2.tgz#7496bc595454abdd3e1c10612bb3446cb125181a"
+  integrity sha512-ZfIWfRKlKAkMwEI+41rMPkwdNEQEfBLXV6TVaN5er3cdwMD0vQecWt6YOE4/v1ELziaj10NNRB8yB42V56QBMQ==
   dependencies:
-    firebaseui "^4.7.1"
+    firebaseui "^4.8.0"
 
 react-helmet-async@^1.0.7:
   version "1.0.9"
