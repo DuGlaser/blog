@@ -1,6 +1,7 @@
 import { Plugin } from 'unified';
 import { Node } from 'unist';
-import visit from 'unist-util-visit';
+import { visit } from 'unist-util-visit';
+import type { Visitor } from 'unist-util-visit/complex-types';
 
 type ImgNode = {
   data: {
@@ -16,7 +17,7 @@ type ImgNode = {
 export const imageSize: Plugin = () => {
   const find = /=[0-9]+x[0-9]+/;
 
-  const visitor: visit.Visitor<ImgNode> = (node) => {
+  const visitor: Visitor<ImgNode> = (node) => {
     let { data } = node;
     const { url } = node;
 
