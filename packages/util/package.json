@@ -12,6 +12,6 @@
     "dev": "tsc-watch"
   },
   "devDependencies": {
-    "tsc-watch": "^4.2.9"
+    "tsc-watch": "4.5.0"
   }
 }
