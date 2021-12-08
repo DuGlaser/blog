@@ -17,7 +17,8 @@
     "types": ["@emotion/react/types/css-prop"],
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "incremental": true
   },
   "exclude": ["node_modules", "src/**/*.stories.tsx"],
   "include": ["src/**/*.ts", "src/**/*.tsx"]
