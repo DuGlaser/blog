@@ -1,6 +1,5 @@
 import { Article } from '@blog/core';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import { config } from 'site.config';
 import urljoin from 'url-join';
@@ -39,14 +38,14 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 const ArticlePage: NextPage<Props> = ({ article }) => {
-  const router = useRouter();
-  const url = urljoin(config.site.url, router ? router.asPath : '');
+  const url = urljoin(config.site.url, 'articles', article.id);
 
   return (
     <Layout>
       <NextSeo
         title={article.title}
         description={article.description}
+        canonical={url}
         openGraph={{
           title: article.title,
           description: article.description,
