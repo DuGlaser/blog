@@ -58,6 +58,7 @@ export const getArticleById = async (
 
     const article = {
       ...data,
+      id,
       created_at: formatDate(createdAt),
       updated_at: formatDate(updatedAt),
     };
