@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 import * as S from './style';
 
-export const Header = () => {
+export const Header: React.VFC = () => {
   return (
     <S.Wrapper>
-      <Link href="/">
+      <Link href="/" passHref>
         <S.WrapperAnchor>
           <S.Title>永遠にWIP</S.Title>
         </S.WrapperAnchor>
