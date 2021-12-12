@@ -41,7 +41,7 @@
     "react-firebaseui": "5.0.2",
     "react-modal": "3.14.4",
     "react-select": "5.2.1",
-    "react-syntax-highlighter": "15.4.3",
+    "react-syntax-highlighter": "15.4.5",
     "use-stop-typing": "1.0.10"
   },
   "devDependencies": {
