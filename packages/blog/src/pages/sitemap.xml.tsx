@@ -8,6 +8,25 @@ async function generateSitemapXml(): Promise<string> {
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
   const articles = await getAllArticles();
+
+  const latestArticle = articles.sort((a, b) => {
+    const au = a.updated_at as string;
+    const bu = b.updated_at as string;
+
+    return bu.localeCompare(au);
+  })[0];
+
+  if (latestArticle) {
+    xml += `
+      <url>
+        <loc>${config.site.url}/</loc>
+        <lastmod>${latestArticle.updated_at}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+      </url>
+  `;
+  }
+
   articles.forEach((article) => {
     xml += `
       <url>
