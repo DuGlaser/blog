@@ -9,6 +9,11 @@ module.exports = {
         destination: '/articles/:path',
         permanent: true,
       },
+      {
+        source: '/rss',
+        destination: '/feed',
+        permanent: true,
+      },
     ];
   },
 };
