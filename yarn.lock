@@ -18584,10 +18584,10 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
-use-stop-typing@1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/use-stop-typing/-/use-stop-typing-1.0.12.tgz#e2c73a0378059665595e344fd54ccd166f74efd4"
-  integrity sha512-OYfo0QCIvxMPPGXx/fZ+7MbjBRRWHRZLMtCGMBgXZGlYcGGwp9X4RxlGYoUv8LyqJ8cnxXVgOA8Seb1eK3F61Q==
+use-stop-typing@1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/use-stop-typing/-/use-stop-typing-1.0.13.tgz#5d90086dd57d3db9030d7e38f0514b5d7d0ba264"
+  integrity sha512-TtbbMMDOtHdTEgdgH19EqAeaagNaIIljcMQXPfogmyWhywY9j0boq5Sm9bQWR042qdj+yqXyirjsPUUEJktWpA==
   dependencies:
     react "^17.0.1"
 
