@@ -29,7 +29,7 @@
     "@types/jest": "27.4.0",
     "@types/react": "17.0.38",
     "@types/react-test-renderer": "17.0.1",
-    "jest": "27.4.5",
+    "jest": "27.4.7",
     "react-test-renderer": "17.0.2",
     "ts-jest": "27.1.2"
   },
