@@ -45,7 +45,7 @@
     "use-stop-typing": "1.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.16.10",
+    "@babel/core": "7.16.12",
     "@emotion/babel-plugin": "11.7.2",
     "@storybook/addon-actions": "6.4.15",
     "@storybook/addon-essentials": "6.4.15",
