@@ -13238,10 +13238,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-next-firebase-auth@0.14.1:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/next-firebase-auth/-/next-firebase-auth-0.14.1.tgz#a3d11b808a9e4f7fb001634b541936af18032184"
-  integrity sha512-TMmXDedelywDCGR2ydpxt6TVbBtBau9oE74SnPvcjxIN31dDgHipfTO1A1n1RY1jBrRWha4vrB1hveMWWQvC/A==
+next-firebase-auth@0.14.2:
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/next-firebase-auth/-/next-firebase-auth-0.14.2.tgz#cfd7f3a15c7cc9d5afacf8a1154eba749a5cc0aa"
+  integrity sha512-RDSiI+4o34nJT3lGJs8XovZq62sMRACgugImv0vq54JiwukmA0pBCKMv/zege6U+3d6r6U/y5MnB3VG5RLLvTw==
   dependencies:
     cookies "^0.8.0"
     hoist-non-react-statics "^3.3.2"
