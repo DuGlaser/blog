@@ -34,7 +34,7 @@
     "url-join": "5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.8",
+    "@babel/core": "7.17.9",
     "@emotion/babel-plugin": "11.7.2",
     "@storybook/addon-actions": "6.4.21",
     "@storybook/addon-essentials": "6.4.21",
