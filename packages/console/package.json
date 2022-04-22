@@ -60,7 +60,7 @@
     "@types/react-modal": "3.13.1",
     "@types/react-select": "5.0.1",
     "@types/react-syntax-highlighter": "13.5.2",
-    "babel-loader": "8.2.4",
+    "babel-loader": "8.2.5",
     "csstype": "3.0.11",
     "tsconfig-paths-webpack-plugin": "3.5.2",
     "webpack-merge": "5.8.0"
