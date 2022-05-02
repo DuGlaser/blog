@@ -13,6 +13,6 @@ const StyledImage = styled.img`
   aspect-ratio: ${(props) => props.width} / ${(props) => props.height};
 `;
 
-export const Image: React.VFC<ImageProps> = ({ ...props }) => {
+export const Image: React.FC<ImageProps> = ({ ...props }) => {
   return <StyledImage loading={'lazy'} {...props} />;
 };

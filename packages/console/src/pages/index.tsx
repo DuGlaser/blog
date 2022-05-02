@@ -34,7 +34,7 @@ const S = {
   `,
 };
 
-const IndexPage: NextPage = () => {
+const IndexPage: NextPage<unknown> = () => {
   const [value] = useGetArticlesDataOnce();
   const router = useRouter();
   const theme = useTheme();

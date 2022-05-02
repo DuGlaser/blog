@@ -6,7 +6,7 @@ type Props = {
   className: string;
 };
 
-const _Code: React.FC<Props> = ({ className, children }) => {
+const _Code: React.FC<React.PropsWithChildren<Props>> = ({ className, children }) => {
   const language = className ? className.replace('language-', '') : '';
   const content = children?.toString().trim();
   return (

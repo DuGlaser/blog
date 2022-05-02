@@ -2,7 +2,7 @@ import { Header } from '@/components/atoms';
 
 import * as S from './style';
 
-export const Layout: React.FC = ({ children }) => {
+export const Layout: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   return (
     <S.Wrapper>
       <Header />

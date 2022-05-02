@@ -12,7 +12,7 @@ type StyleProps = {
   onChange: (v: string) => void;
 };
 
-export type Props = TextareaProps & StyleProps;
+export type Props = Omit<TextareaProps, 'onChange' | 'value'> & StyleProps;
 
 export const Editor = React.forwardRef<HTMLTextAreaElement, Props>(
   function _Editor({ onChange, ...props }, ref) {

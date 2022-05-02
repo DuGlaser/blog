@@ -7,7 +7,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useReducer, useRef, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useStopTyping } from 'use-stop-typing';
 
 import {
   FlatButton,
@@ -94,24 +93,7 @@ export const ArticleEditor: React.VFC<Props> = ({
   const editorRef = useRef<HTMLTextAreaElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
 
-  [editorRef, titleRef].map((ref) => {
-    useStopTyping(
-      ref,
-      () => {
-        handleSave({
-          public: state.public,
-          title: state.title,
-          body: state.body,
-          description: createDescription(state.body),
-        });
-        setIsUpdate(true);
-        setTimeout(() => setIsUpdate(false), 2500);
-      },
-      2000
-    );
-  });
-
-  const handleChangeBody = useCallback((value) => {
+  const handleChangeBody = useCallback((value: string) => {
     dispatch({
       type: ActionType.UPDATE_BODY,
       payload: { ...state, body: value },
@@ -165,6 +147,22 @@ export const ArticleEditor: React.VFC<Props> = ({
             }}
           >
             {state.public ? '非公開にする' : '公開する'}
+          </FlatButton>
+          <FlatButton
+            bgColor={theme.color.primary}
+            textColor={theme.color.white}
+            onClick={() => {
+              handleSave({
+                public: state.public,
+                title: state.title,
+                body: state.body,
+                description: createDescription(state.body),
+              });
+              setIsUpdate(true);
+              setTimeout(() => setIsUpdate(false), 2500);
+            }}
+          >
+            保存する
           </FlatButton>
         </S.ButtonWrapper>
       </S.Header>

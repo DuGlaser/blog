@@ -15289,14 +15289,6 @@ react@18.1.0, react@^18.0.0:
   dependencies:
     loose-envify "^1.1.0"
 
-react@^17.0.1:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
 read-cmd-shim@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/read-cmd-shim/-/read-cmd-shim-2.0.0.tgz#4a50a71d6f0965364938e9038476f7eede3928d9"
@@ -18053,13 +18045,6 @@ use-latest@^1.0.0:
   integrity sha512-xA+AVm/Wlg3e2P/JiItTziwS7FK92LWrDB0p+hgXloIMuVCeJJ8v6f0eeHyPZaJrM+usM1FkFfbNCrJGs8A/zw==
   dependencies:
     use-isomorphic-layout-effect "^1.1.1"
-
-use-stop-typing@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/use-stop-typing/-/use-stop-typing-1.1.0.tgz#4b49d2c0d81a8d849bf52e15cc9b9bbfcba31692"
-  integrity sha512-GP3vuq/0sQbA3DFZw0B6i6hlMxvXk2/m47x+pjQkrftcnjLT+9RCZ+/Jo5awY5s3J1gt/DoHHyXNa5pT5YurkQ==
-  dependencies:
-    react "^17.0.1"
 
 use@^3.1.0:
   version "3.1.1"

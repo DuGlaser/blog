@@ -20,7 +20,7 @@ const S = {
   `,
 };
 
-const NewPage: NextPage = () => {
+const NewPage: NextPage<unknown> = () => {
   return (
     <Layout>
       <S.Flex>
