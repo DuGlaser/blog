@@ -9,6 +9,6 @@ const StyledDiv = styled.div`
   border-radius: 4px;
 `;
 
-export const Tag: React.FC = ({ children }) => {
+export const Tag: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   return <StyledDiv>{children}</StyledDiv>;
 };

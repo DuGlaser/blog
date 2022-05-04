@@ -13,7 +13,7 @@
     "lint": "eslint --ext .ts"
   },
   "dependencies": {
-    "react": "^17.0.1",
+    "react": "^18.0.0",
     "rehype-react": "^7.0.3",
     "remark": "^14.0.2",
     "remark-breaks": "^3.0.0",
@@ -27,10 +27,10 @@
   },
   "devDependencies": {
     "@types/jest": "27.4.1",
-    "@types/react": "17.0.44",
+    "@types/react": "18.0.8",
     "@types/react-test-renderer": "18.0.0",
     "jest": "27.5.1",
-    "react-test-renderer": "17.0.2",
+    "react-test-renderer": "18.1.0",
     "ts-jest": "27.1.4"
   },
   "jest": {

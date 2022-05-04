@@ -5,7 +5,7 @@ import { LoggedinUser } from '@/components/molecules';
 
 import * as S from './style';
 
-export const Layout: React.FC = ({ children }) => {
+export const Layout: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   const authUser = useAuthUser();
 
   if (authUser.firebaseUser?.email !== 'duglaser0618@gmail.com') {

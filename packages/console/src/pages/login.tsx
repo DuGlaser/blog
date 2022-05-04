@@ -32,7 +32,7 @@ const uiConfig = {
   },
 };
 
-const LoginPage: NextPage = () => {
+const LoginPage: NextPage<unknown> = () => {
   return (
     <S.Wrapper>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />

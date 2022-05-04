@@ -26,6 +26,6 @@ const StyledDiv = styled.div<Props>(
   })
 );
 
-export const FloatingWindow: React.FC<Props> = ({ children, ...props }) => {
+export const FloatingWindow: React.FC<React.PropsWithChildren<Props>> = ({ children, ...props }) => {
   return <StyledDiv {...props}>{children}</StyledDiv>;
 };

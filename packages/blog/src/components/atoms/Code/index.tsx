@@ -14,7 +14,7 @@ const StyledCode = styled.code`
   background-color: ${(props) => props.theme.color.bgColor};
 `;
 
-const _Code: React.FC<Props> = ({ className, children }) => {
+const _Code: React.FC<React.PropsWithChildren<Props>> = ({ className, children }) => {
   if (!className) {
     return <StyledCode>{children}</StyledCode>;
   }
@@ -36,4 +36,4 @@ const _Code: React.FC<Props> = ({ className, children }) => {
   );
 };
 
-export const Code: React.FC<Props> = React.memo<Props>(_Code);
+export const Code: React.FC<React.PropsWithChildren<Props>> = React.memo<React.PropsWithChildren<Props>>(_Code);

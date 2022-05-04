@@ -34,15 +34,14 @@
     "next": "12.1.5",
     "next-firebase-auth": "0.14.3",
     "next-seo": "5.4.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-dropzone": "12.1.0",
     "react-firebase-hooks": "3.0.5",
     "react-firebaseui": "5.0.2",
     "react-modal": "3.15.1",
     "react-select": "5.3.1",
-    "react-syntax-highlighter": "15.5.0",
-    "use-stop-typing": "1.1.0"
+    "react-syntax-highlighter": "15.5.0"
   },
   "devDependencies": {
     "@babel/core": "7.17.10",
@@ -54,7 +53,7 @@
     "@storybook/theming": "6.4.22",
     "@types/axios": "0.14.0",
     "@types/node": "16.11.32",
-    "@types/react": "17.0.44",
+    "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
     "@types/react-dropzone": "5.1.0",
     "@types/react-modal": "3.13.1",
