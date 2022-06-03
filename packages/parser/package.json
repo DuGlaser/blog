@@ -31,7 +31,7 @@
     "@types/react-test-renderer": "18.0.0",
     "jest": "28.1.0",
     "react-test-renderer": "18.1.0",
-    "ts-jest": "28.0.3"
+    "ts-jest": "28.0.4"
   },
   "jest": {
     "extensionsToTreatAsEsm": [
