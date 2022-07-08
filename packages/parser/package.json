@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/jest": "28.1.4",
-    "@types/react": "18.0.14",
+    "@types/react": "18.0.15",
     "@types/react-test-renderer": "18.0.0",
     "jest": "28.1.2",
     "react-test-renderer": "18.2.0",
