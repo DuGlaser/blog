@@ -28,7 +28,7 @@
     "@fortawesome/react-fontawesome": "0.2.0",
     "axios": "0.27.2",
     "firebase": "8.10.1",
-    "firebase-admin": "11.0.0",
+    "firebase-admin": "11.0.1",
     "github-markdown-css": "5.1.0",
     "modern-css-reset": "1.4.0",
     "next": "12.2.3",
