@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.13",
-    "@emotion/babel-plugin": "11.10.0",
+    "@emotion/babel-plugin": "11.10.2",
     "@storybook/addon-actions": "6.5.10",
     "@storybook/addon-essentials": "6.5.10",
     "@storybook/addon-links": "6.5.10",
